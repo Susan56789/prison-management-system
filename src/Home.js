@@ -1,30 +1,39 @@
-import React,{Component} from 'react';
+import React from 'react';
 import './login.css';
 import banner from './banner.gif';
-import {BrowserRouter as Router, Link} from 'react-router-dom';
-import Login from './Login';
-import About from './About';
-import Announce from './Announce';
+import './About';
+import './Announce';
+import './Login';
 
-
-class Home extends Component {
-   render(){
+const Home =() => {
+   
     return (
-      <div>
-        <div>
+  <div>
+        <div align="center" border="0" color="green" width="540" >
         <img src={banner} width="860"  alt=''/>
         </div>
-        <Router>
-<Link to='/' >Home</Link>
-<Link to={About}>About</Link>
-<Link to={Login}>Login</Link>
-<Link to={Announce}>Comments</Link>
-       </Router>
-      </div>
+         
+
+        <nav  align="center" >
+          <ul>
+            <li><a href='/'>Home</a></li>
+            <li><a href='./About'>About</a></li>
+            <li><a href='./Announce'>Comments</a></li>
+            <li><a href='./Login'>Login</a></li>
+            
+          </ul>
+          </nav>
+          
+
+
+        <div align="center">
+        <h2 >Prison Management System Online </h2>
+        </div>
+</div>
 
         
             );
    }
-}
+
 
 export default Home;

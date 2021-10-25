@@ -1,6 +1,8 @@
 import React from 'react';
 import './login.css';
 import banner from './banner.gif';
+import './Home';
+import './About';
 
 const Login = () => {
     return (
@@ -14,8 +16,8 @@ const Login = () => {
             <td colspan="3" bgcolor="#FF0000" height="1" align="center">
 	     	<font size="4">
          
-         <a href="index.php">HOME</a>  |
-		     <a href="location.php">ABOUT US</a> 
+         <a href="/">HOME</a>  |
+		     <a href="./About">ABOUT US</a> 
           </font>
             </td>
           </tr>
@@ -39,10 +41,14 @@ const Login = () => {
 <td height="36" bgcolor="#FFFFFF"><input type="password" name="password" /></td>
 </tr>
 <tr><td bgcolor="#FFFFFF"><b>Select User:</b></td>
-       <td height="36" bgcolor="#FFFFFF"> <select name="cmbUser"/>
+       <td height="36" bgcolor="#FFFFFF"> 
+    <select>
 		 <option>User</option>
      <option>Police</option>
-     <option>Admin</option></td></tr>
+     <option>Admin</option>
+     </select>
+     </td></tr>
+    
 <tr><td bgcolor="#FFFFFF" height="36"  align="center"><input type="submit" value="LOGIN" /></td></tr>
 </form>
 </td>
