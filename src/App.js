@@ -7,8 +7,8 @@ import Login from './Login';
 import About from './About';
 import Announce from './Announce';
 
+const App =() =>{
 
-function App() {
   return (
     <div className="App">
       <Navbar />
@@ -21,7 +21,7 @@ function App() {
       <About />
     </Route>
     <Route path="/login">
-      <Login />
+      <Login/>
     </Route>
     <Route path="/announce">
       <Announce />

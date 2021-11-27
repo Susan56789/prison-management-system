@@ -4,7 +4,11 @@ import banner from './banner.gif';
 import './Home';
 import './About';
 
+
 const Login = () => {
+
+  
+
     return (
         
 <div>
@@ -27,7 +31,7 @@ const Login = () => {
        
 
 
-<form action="./Logged.js" method="post">
+<form>
 
 	    <h2><b>LOGIN MEMBERS </b></h2>
 
@@ -43,13 +47,16 @@ const Login = () => {
 <tr><td bgcolor="#FFFFFF"><b>Select User:</b></td>
        <td height="36" bgcolor="#FFFFFF"> 
     <select>
-		 <option>User</option>
-     <option>Police</option>
-     <option>Admin</option>
+		 <option value='guest' >User</option>
+     <option value='police'>Police</option>
+     <option value='admin' >Admin</option>
      </select>
      </td></tr>
     
-<tr><td bgcolor="#FFFFFF" height="36"  align="center"><input type="submit" value="LOGIN" /></td></tr>
+<tr><td bgcolor="#FFFFFF" height="36"  align="center">
+  <input type="submit" value="LOGIN"/>
+  
+  </td></tr>
 </form>
 </td>
 </tr>

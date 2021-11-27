@@ -2,6 +2,13 @@ import React from 'react';
 import './login.css';
 import '../admin/SearchForm';
 import '../admin/Location';
+import '../admin/OfficerTransfer';
+import '../admin/Registration';
+import '../admin/Court';
+import './ViewOficcer';
+
+
+
 
 const Admin = () => {
     return (
@@ -23,9 +30,9 @@ const Admin = () => {
 		        <a href="../admin/SearchForm">Search </a> 
                 <a href="../admin/Location">Location</a>
 				
-		        <a href="officertransfer.php">Officer</a>|
-		        <a href="registration.php">Register</a>
-				<a href="court.php">Court</a>
+		        <a href="../admin/OfficerTransfer">Officer</a>|
+		        <a href="../admin/Registration">Register</a>
+				<a href="../admin/Court">Court</a>
 		        </font></h1>
             </td>
 			 
@@ -67,10 +74,10 @@ const Admin = () => {
 
 <ul>
 	
-	<li><a href='viewofficer.php'><b><button>Prison Officer Transfer</button></b></a></li>
+	<li><a href='./ViewOficcer'><b><button>Prison Officer Transfer</button></b></a></li>
 		<br/>
 
-	<li><a href='viewprisoners.php'><b><button>Prisoners Detais</button></b></a></li>
+	<li><a href='viewprisoners.php'><b><button>Prisoners Details</button></b></a></li>
 		<br/>
 	<li><a href='viewcase.php'><b><button>Case Details</button></b></a></li>
 		<br/>
