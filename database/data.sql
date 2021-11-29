@@ -31,3 +31,28 @@ Sentence varchar(50) NOT NULL,
 Location_ varchar(20) NOT NULL
 )
 
+CREATE TABLE newprison(
+pno int NOT NULL PRIMARY KEY,
+pname varchar(30) NOT NULL,
+location_ varchar(30) NOT NULL,
+opendate varchar(30) NOT NULL,
+contact int NOT NULL,
+capacity int  NOT NULL
+)
+
+
+
+INSERT INTO newprison VALUES(7,'LAMU', 'LAMU', '2020-02-12', 796487125, 500),
+(2334, 'LANGATA', 'NAIROBI', '2020-02-12', 719884142, 10)
+
+
+CREATE TABLE officer (
+National_id int NOT NULL PRIMARY KEY,
+Telephone varchar(20) NOT NULL,
+From_prison varchar(30) NOT NULL,
+To_prison varchar(30) NOT NULL,
+Dateoftransfer date NOT NULL
+)
+
+
+
