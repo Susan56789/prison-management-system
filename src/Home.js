@@ -8,13 +8,14 @@ import './Login';
 const Home =() => {
    
     return (
-  <div>
-        <div align="center" border="0" color="green" width="540" >
-        <img src={banner} width="860"  alt=''/>
-        </div>
+  <table align="center" border="0" bgcolor="green" width="540" cellpadding="9" cellspacing="0" height="525">
+        <tr>
+       <td colspan="3" height="2"> <img src={banner} width="860"  alt=''/></td>
+        </tr>
          
-
-        <nav  align="center" >
+         <tr>
+        <td colspan="3" bgcolor="#FF0000" height="1" align="center">
+        <nav>
           <ul>
             <li><a href='/'>Home</a></li>
             <li><a href='./About'>About</a></li>
@@ -23,13 +24,15 @@ const Home =() => {
             
           </ul>
           </nav>
-          
+          </td>
+          </tr>
 
-
-        <div align="center">
+         <tr>
+           <td>
         <h2 >Prison Management System Online </h2>
-        </div>
-</div>
+        </td>
+        </tr> 
+</table>
 
         
             );

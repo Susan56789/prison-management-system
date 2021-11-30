@@ -1,6 +1,7 @@
 import React from 'react';
 import './login.css';
 import banner from './banner.gif';
+import capture from './Capturee.gif';
 import './Home';
 import './About';
 
@@ -26,7 +27,7 @@ const Login = () => {
             </td>
           </tr>
           <tr>
-            <td width="25%" bgcolor="#FFFFFF" >&nbsp;&nbsp;<img src="capturee.gif" width="200" height="179"  alt=""/></td>
+            <td width="25%" bgcolor="#FFFFFF" >&nbsp;&nbsp;<img src={capture} width="200" height="179"  alt=""/></td>
             <td width="50%" align="center" bgcolor="#FFFFFF">
        
 
