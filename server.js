@@ -20,17 +20,18 @@ app.post('/api/greeting', (req, res) => {
 });
 
 //create admin
-let Wairimu = new Admins(6, 'Wairimu', 'Wairimu234')
+//let Wairimu = new Admins(6, 'Wairimu', 'Wairimu234')
 
 
-dbOperation.getAdmin().then(res =>{
+// eslint-disable-next-line no-lone-blocks
+{/**dbOperation.getAdmin().then(res =>{
     console.log(res.recordset);
 })
 
 dbOperation.createAdmin(Wairimu);
 
-//console.log(Wairimu);
-
+console.log(Wairimu);
+**/}
 
 
 app.listen(3001, () =>
