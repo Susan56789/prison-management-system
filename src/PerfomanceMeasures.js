@@ -11,10 +11,10 @@ const PerfomanceMeasures = () => {
         <>
           <table align="center" border="0" bgcolor="green" width="540" cellpadding="9" cellspacing="0" height="525">
           <tr>
-            <td colspan="3" height="2"><img src={banner} width="860"  alt=''/></td>
+            <td colSpan="3" height="2"><img src={banner} width="860"  alt=''/></td>
           </tr>
           <tr>
-            <td colspan="3" bgcolor="#FF0000" height="1" align="center">
+            <td colSpan="3" bgcolor="#FF0000" height="1" align="center">
 	     	<font size="4">
          
          <a href="/">HOME</a>  |

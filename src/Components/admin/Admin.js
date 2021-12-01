@@ -74,7 +74,7 @@ const Admin = () => {
 
 <ul>
 	
-	<li><a href='./ViewOficcer'><b><button>Prison Officer Transfer</button></b></a></li>
+	<li><a href='./ViewOfficer'><b><button>Prison Officer Transfer</button></b></a></li>
 		<br/>
 
 	<li><a href='viewprisoners.php'><b><button>Prisoners Details</button></b></a></li>
@@ -95,7 +95,7 @@ const Admin = () => {
 		<br/>
 	<li><a href='report.php'><b><button>Report</button></b></a></li>
 		<br/>
-    <li><a href='../index.php'><b><button>LOG OUT</button></b></a></li>
+    <li><a href='/'><b><button>LOG OUT</button></b></a></li>
 </ul>
 </td>
 </tr>

@@ -12,25 +12,25 @@ const Location = () => {
 	<table align='center' border='0' bgcolor='green' width='820' cellpadding='10' cellspacing='0' height='325'>
           
 		  <tr>
-            <td colspan='3' height='2'><img src={banner} alt='banner' /></td>
+            <td colSpan='3' height='2'><img src={banner} alt='banner' /></td>
           </tr>
 		 
-            <td colspan="7" bgcolor="#yellow" height="1" align="center">
+            <td colSpan="7" bgcolor="#yellow" height="1" align="center">
 		      <h1><font size="5">
-	           <a href="index.php">Home</a> | 
+	           <a href="/">Home</a> | 
               			   
-		        <a href="search-form.php">Search </a> 
-		        <a href="location.php">Location</a>|
-		        <a href="announce.php">Complain</a>|
+		        <a href="./SearchForm">Search </a> 
+		        <a href="./Location">Location</a>|
+		        <a href="../../Announce">Complain</a>|
 				 <a href="transfer.php">Prisoner Trans </a> ||
 		        <a href="officertransfer.php">Officer</a>|
-		        <a href="registration.php">Register</a>
-				<a href="court.php">Court</a>
+		        <a href="./Registration">Register</a>
+				<a href="./Court">Court</a>
 		        </font></h1>
             </td>
 			 
 		 
-            <td height='1' colspan='3' align='right' bgcolor="#006600">&nbsp;</td>
+            <td height='1' colSpan='3' align='right' bgcolor="#006600">&nbsp;</td>
 			
          
 		 
@@ -48,8 +48,8 @@ const Location = () => {
 <br/>
 <div id="content">
     	<div id="gallerycontainer">
-			<div class="portfolio-area" style="margin:0 auto; padding:140px 20px 20px 20px; width:720px;">	
-				<iframe width="100%" height="390" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com.ph/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Florida+Bus+Terminal,+West+Kamias,+Quezon+City,+Metro+Manila&amp;aq=0&amp;oq=floridBarangay+West+Kamias,+Cubao,+Quezon+City,+Metro+Manila&amp;sll=14.630676,121.047814&amp;sspn=0.011772,0.021136&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=Florida+Bus+Terminal,+Quezon+City,+Metro+Manila&amp;ll=14.630676,121.047814&amp;spn=0.011772,0.021136&amp;z=14&amp;output=embed"></iframe><br /><small><a href="https://maps.google.com.ph/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Florida+Bus+Terminal,+West+Kamias,+Quezon+City,+Metro+Manila&amp;aq=0&amp;oq=floridBarangay+West+Kamias,+Cubao,+Quezon+City,+Metro+Manila&amp;sll=14.630676,121.047814&amp;sspn=0.011772,0.021136&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=Florida+Bus+Terminal,+Quezon+City,+Metro+Manila&amp;ll=14.630676,121.047814&amp;spn=0.011772,0.021136&amp;z=14" style="color:#0000FF;text-align:left">View Larger Map</a></small>
+			<div class="portfolio-area" style={{margin:'0 auto', padding:'140px 20px 20px 20px', width:'720px'}}>	
+				<iframe width="100%" title='iframe1' height="390" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com.ph/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Florida+Bus+Terminal,+West+Kamias,+Quezon+City,+Metro+Manila&amp;aq=0&amp;oq=floridBarangay+West+Kamias,+Cubao,+Quezon+City,+Metro+Manila&amp;sll=14.630676,121.047814&amp;sspn=0.011772,0.021136&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=Florida+Bus+Terminal,+Quezon+City,+Metro+Manila&amp;ll=14.630676,121.047814&amp;spn=0.011772,0.021136&amp;z=14&amp;output=embed"></iframe><br /><small><a href="https://maps.google.com.ph/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Florida+Bus+Terminal,+West+Kamias,+Quezon+City,+Metro+Manila&amp;aq=0&amp;oq=floridBarangay+West+Kamias,+Cubao,+Quezon+City,+Metro+Manila&amp;sll=14.630676,121.047814&amp;sspn=0.011772,0.021136&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=Florida+Bus+Terminal,+Quezon+City,+Metro+Manila&amp;ll=14.630676,121.047814&amp;spn=0.011772,0.021136&amp;z=14" style="color:#0000FF;text-align:left">View Larger Map</a></small>
 				<div class="column-clear"></div>
             </div>
 			<div class="clearfix"></div>
@@ -84,7 +84,7 @@ const Location = () => {
 			</td>
           </tr>
           <tr>
-            <td colspan='3' align='center' bgcolor='#FF0000' height='1'>
+            <td colSpan='3' align='center' bgcolor='#FF0000' height='1'>
 					&copy; <strong>
                 &nbsp;2021 KENYA PRISONS SERVICE By Susan</strong></td>
           </tr>

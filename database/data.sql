@@ -55,8 +55,9 @@ National_id int NOT NULL PRIMARY KEY,
 Telephone varchar(20) NOT NULL,
 From_prison varchar(30) NOT NULL,
 To_prison varchar(30) NOT NULL,
-Dateoftransfer date NOT NULL
+Dateoftransfer varchar(30) NOT NULL
 )
+
 
 INSERT INTO officer VALUES (
 674484, '0712965134', 'LANGATA', 'SHIMOLATEWA', '2020-01-20'

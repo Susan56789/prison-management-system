@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const pino = require('express-pino-logger')();
 const dbOperation = require('./database/dbOperation');
 const Admins = require('./database/Admins');
-
+const Officers = require('./database/Officer');
 
 
 const app = express();
@@ -13,25 +13,28 @@ app.use(express.json());
 app.use(express.urlencoded());
 
 
-app.post('/api/greeting', (req, res) => {
-  const name = req.query.name || 'World';
+app.get('/api', async (req, res) => {
+  console.log('called');
   res.setHeader('Content-Type', 'application/json');
-  res.send(JSON.stringify({ greeting: `Hello ${name}!` }));
+  let result=await dbOperation.getOfficer(req.headers);
+  res.send(result.recordset);
 });
-
-//create admin
-//let Wairimu = new Admins(6, 'Wairimu', 'Wairimu234')
 
 
 // eslint-disable-next-line no-lone-blocks
-{/**dbOperation.getAdmin().then(res =>{
+{/**
+let Mwaki = new Officers(64343965, '0794323444','NAKURU','KIGANJO','2021-01-12')
+
+dbOperation.getOfficer().then(res =>{
     console.log(res.recordset);
 })
 
-dbOperation.createAdmin(Wairimu);
+dbOperation.createOfficer(Mwaki);
 
-console.log(Wairimu);
-**/}
+console.log(Mwaki);
+
+*/}
+
 
 
 app.listen(3001, () =>

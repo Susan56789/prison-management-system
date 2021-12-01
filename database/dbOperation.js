@@ -31,9 +31,41 @@ const createAdmin = async (Admins) =>{
 
 
 
+//Officer
+const getOfficer = async () =>{
+    try{
+        let pool = await sql.connect(config);
+        let Officer = await pool.request().query("SELECT * from officer");
+        console.log(Officer);
+        return Officer;
+    }
+    
+    catch(error){
+        console.log(error);
+    }
+}
+const createOfficer = async (Officers) =>{
+    try{
+        let pool = await sql.connect(config);
+        let Officer =await pool.request().query(`
+        INSERT INTO officer VALUES (${Officers.National_id},'${Officers.Telephone}', '${Officers.From_prison}','${Officers.To_prison}', '${Officers.Dateoftransfer}')
+        `);
+        console.log(Officer);
+        return Officer;
+    }
+    catch(error){
+        console.log(error);
+    }
+}
+
+
+
+
 
 
 module.exports ={
     createAdmin,
-    getAdmin
+    getAdmin, 
+    getOfficer,
+    createOfficer
 };

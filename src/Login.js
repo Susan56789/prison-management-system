@@ -8,17 +8,18 @@ import './About';
 
 const Login = () => {
 
-  
+  const SignIn= () =>{
+        console.log('user');
+  }
 
-    return (
-        
+    return (      
 <div>
 <table align="center" border="0" bgcolor="green" width="540" cellpadding="9" cellspacing="0" height="525">
           <tr>
-            <td colspan="3" height="2"><img src={banner} width="860"  alt=''/></td>
+            <td colSpan="3" height="2"><img src={banner} width="860"  alt=''/></td>
           </tr>
           <tr>
-            <td colspan="3" bgcolor="#FF0000" height="1" align="center">
+            <td colSpan="3" bgcolor="#FF0000" height="1" align="center">
 	     	<font size="4">
          
          <a href="/">HOME</a>  |
@@ -55,7 +56,7 @@ const Login = () => {
      </td></tr>
     
 <tr><td bgcolor="#FFFFFF" height="36"  align="center">
-  <input type="submit" value="LOGIN"/>
+  <input type="submit" value="LOGIN" onClick={SignIn} />
   
   </td></tr>
 </form>

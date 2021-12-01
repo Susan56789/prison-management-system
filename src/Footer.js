@@ -4,7 +4,7 @@ import './styles.css';
 const Footer = () => {
     return (
         <div className='footer'>
-            <p>&copy; 2022 Prison Management System</p> 
+            <p>&copy; 2021 Prison Management System</p> 
         </div>
     )
 }

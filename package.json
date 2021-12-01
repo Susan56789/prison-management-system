@@ -30,6 +30,7 @@
     "server": "node-env-run server.js --exec nodemon",
     "dev": "run-p server start"
   },
+
   "eslintConfig": {
     "extends": [
       "react-app",
