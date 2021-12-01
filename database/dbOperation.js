@@ -39,7 +39,7 @@ const getOfficer = async () =>{
         console.log(Officer);
         return Officer;
     }
-    
+
     catch(error){
         console.log(error);
     }
@@ -58,8 +58,47 @@ const createOfficer = async (Officers) =>{
     }
 }
 
+//Prisoners
 
+const getPrisoner = async () =>{
+    try{
+        let pool = await sql.connect(config);
+        let Prisoner = await pool.request().query("SELECT * from registration");
+        console.log(Prisoner);
+        return Prisoner;
+    }
 
+    catch(error){
+        console.log(error);
+    }
+}
+const createPrisoner = async (prisoners) =>{
+    try{
+        let pool = await sql.connect(config);
+        let Prisoner =await pool.request().query(`
+        INSERT INTO registration  VALUES (
+            ${prisoners.id},
+            ${prisoners.Fullname},
+            ${prisoners.DOB},
+            ${prisoners.datein},
+            ${prisoners.dateout},
+            ${prisoners.Address_},
+            ${prisoners.County},
+            ${prisoners.Gender},
+            ${prisoners.Education},
+            ${prisoners.MaritalStatus},
+            ${prisoners.Offence},
+            ${prisoners.Sentence},
+            ${prisoners.File_num},
+            ${prisoners.prison}
+        `);
+        console.log(Prisoner);
+        return Prisoner;
+    }
+    catch(error){
+        console.log(error);
+    }
+}
 
 
 
@@ -67,5 +106,7 @@ module.exports ={
     createAdmin,
     getAdmin, 
     getOfficer,
-    createOfficer
+    createOfficer,
+    getPrisoner,
+    createPrisoner
 };

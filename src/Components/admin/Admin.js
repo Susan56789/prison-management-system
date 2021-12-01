@@ -77,7 +77,7 @@ const Admin = () => {
 	<li><a href='./ViewOfficer'><b><button>Prison Officer Transfer</button></b></a></li>
 		<br/>
 
-	<li><a href='viewprisoners.php'><b><button>Prisoners Details</button></b></a></li>
+	<li><a href='./ViewPrisoners'><b><button>Prisoners Details</button></b></a></li>
 		<br/>
 	<li><a href='viewcase.php'><b><button>Case Details</button></b></a></li>
 		<br/>

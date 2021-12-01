@@ -4,6 +4,8 @@ const pino = require('express-pino-logger')();
 const dbOperation = require('./database/dbOperation');
 const Admins = require('./database/Admins');
 const Officers = require('./database/Officer');
+const Prisoners = require('./database/Prisoners');
+
 
 
 const app = express();
@@ -12,13 +14,23 @@ app.use(pino);
 app.use(express.json());
 app.use(express.urlencoded());
 
-
+//fetch officer data
 app.get('/api', async (req, res) => {
-  console.log('called');
+  console.log('officer');
   res.setHeader('Content-Type', 'application/json');
   let result=await dbOperation.getOfficer(req.headers);
   res.send(result.recordset);
 });
+
+
+//fetch prisoners data
+app.get('/pris', async (req, res) => {
+  console.log('prisoner');
+  res.setHeader('Content-Type', 'application/json');
+  let result=await dbOperation.getPrisoner(req.headers);
+  res.send(result.recordset);
+});
+
 
 
 // eslint-disable-next-line no-lone-blocks

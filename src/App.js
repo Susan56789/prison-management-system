@@ -14,6 +14,7 @@ import Training from './Training';
 import Salary from './Salary';
 import ViewOficcer from './Components/admin/ViewOficcer';
 import Admin from './Components/admin/Admin';
+import ViewPrisoners from './Components/admin/ViewPrisoners';
 
 const App =() =>{
 
@@ -57,6 +58,9 @@ const App =() =>{
     </Route>
 <Route path="/Admin">
 <Admin />
+</Route>
+<Route path='/ViewPrisoners'>
+  <ViewPrisoners />
 </Route>
   </Switch>
 </Router>
