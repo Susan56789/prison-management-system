@@ -84,7 +84,7 @@ const Admin = () => {
 		<br/>
 	<li><a href='./ViewTransfer'><b><button>Transfer Information</button></b></a></li>
 		<br/>
-	<li><a href='viewvis.php'><b><button>Visitors Information</button></b></a></li>
+	<li><a href='./ViewVisitors'><b><button>Visitors Information</button></b></a></li>
 		<br/>
 	<li><a href='viewoff.php'><b><button>Officer details</button></b></a></li>
 		<br/>

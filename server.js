@@ -49,6 +49,16 @@ app.get('/tran', async (req, res) => {
 });
 
 
+//Visitors list
+app.get('/vis', async (req, res) => {
+  console.log('visitor');
+  res.setHeader('Content-Type', 'application/json');
+  let result=await dbOperation.getVisitor(req.headers);
+  res.send(result.recordset);
+});
+
+
+
 // eslint-disable-next-line no-lone-blocks
 {/**
 let Mwaki = new Officers(64343965, '0794323444','NAKURU','KIGANJO','2021-01-12')

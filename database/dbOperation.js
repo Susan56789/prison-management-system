@@ -166,6 +166,41 @@ const createTransfer = async (transfers) =>{
 }
 
 
+//View visitors
+const getVisitor = async () =>{
+    try{
+        let pool = await sql.connect(config);
+        let Visitor = await pool.request().query("SELECT * from visitor");
+        console.log(Visitor);
+        return Visitor;
+    }
+
+    catch(error){
+        console.log(error);
+    }
+}
+const createVisitor = async (visit) =>{
+    try{
+        let pool = await sql.connect(config);
+        let Visitor =await pool.request().query(`
+        INSERT INTO visitor VALUES (
+            ${visit.id},
+            ${visit.fullname},
+            ${visit.address_},
+            ${visit.dateofvisit},
+            ${visit.timein},
+            ${visit.timeout},
+            ${visit.relationship},
+            ${visit.telephone},
+            ${visit.prisoner}
+        `);
+        console.log(Visitor);
+        return Visitor;
+    }
+    catch(error){
+        console.log(error);
+    }
+}
 
 
 
@@ -180,5 +215,7 @@ module.exports ={
     getCase,
     createCase,
     getTransfer,
-    createTransfer
+    createTransfer,
+    getVisitor,
+    createVisitor
 };
