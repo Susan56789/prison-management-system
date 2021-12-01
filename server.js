@@ -31,7 +31,13 @@ app.get('/pris', async (req, res) => {
   res.send(result.recordset);
 });
 
-
+//fetch court details
+app.get('/cas', async (req, res) => {
+  console.log('cases');
+  res.setHeader('Content-Type', 'application/json');
+  let result=await dbOperation.getCase(req.headers);
+  res.send(result.recordset);
+});
 
 // eslint-disable-next-line no-lone-blocks
 {/**

@@ -35,6 +35,8 @@ Sentence varchar(50) NOT NULL,
 Location_ varchar(20) NOT NULL
 )
 
+INSERT INTO court VALUES (23467821,'AS32','2020-11-14','2 years','Kamiti')
+
 CREATE TABLE newprison(
 pno int NOT NULL PRIMARY KEY,
 pname varchar(30) NOT NULL,

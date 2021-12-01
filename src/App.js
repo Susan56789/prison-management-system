@@ -15,6 +15,7 @@ import Salary from './Salary';
 import ViewOficcer from './Components/admin/ViewOficcer';
 import Admin from './Components/admin/Admin';
 import ViewPrisoners from './Components/admin/ViewPrisoners';
+import ViewCase from './Components/admin/ViewCase';
 
 const App =() =>{
 
@@ -61,6 +62,9 @@ const App =() =>{
 </Route>
 <Route path='/ViewPrisoners'>
   <ViewPrisoners />
+</Route>
+<Route path='/ViewCase'>
+  <ViewCase/>
 </Route>
   </Switch>
 </Router>

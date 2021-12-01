@@ -101,6 +101,39 @@ const createPrisoner = async (prisoners) =>{
 }
 
 
+//Court cases
+const getCase = async () =>{
+    try{
+        let pool = await sql.connect(config);
+        let Case = await pool.request().query("SELECT * from court");
+        console.log(Case);
+        return Case;
+    }
+
+    catch(error){
+        console.log(error);
+    }
+}
+const createCase = async (cases) =>{
+    try{
+        let pool = await sql.connect(config);
+        let Case =await pool.request().query(`
+        INSERT INTO court VALUES (
+            ${cases.National_Id},
+            ${cases.File_number},
+            ${cases.Dateoftrail},
+            ${cases.Sentence},
+            ${cases.Location_},
+        `);
+        console.log(Case);
+        return Case;
+    }
+    catch(error){
+        console.log(error);
+    }
+}
+
+
 
 module.exports ={
     createAdmin,
@@ -108,5 +141,7 @@ module.exports ={
     getOfficer,
     createOfficer,
     getPrisoner,
-    createPrisoner
+    createPrisoner,
+    getCase,
+    createCase
 };
