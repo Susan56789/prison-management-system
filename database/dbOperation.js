@@ -203,6 +203,46 @@ const createVisitor = async (visit) =>{
 }
 
 
+//Officer Details
+const getDetails = async () =>{
+    try{
+        let pool = await sql.connect(config);
+        let Officer = await pool.request().query("SELECT * from officerdetails");
+        console.log(Officer);
+        return Officer;
+    }
+
+    catch(error){
+        console.log(error);
+    }
+}
+const createDetails = async (Officers) =>{
+    try{
+        let pool = await sql.connect(config);
+        let Officer =await pool.request().query(`
+        INSERT INTO officerdetails VALUES (
+            ${Officers.id},
+            '${Officers.firstname}',
+             '${Officers.lastname}',
+             '${Officers.address_}', 
+             '${Officers.dateofbirth},
+             '${Officers.gender}',
+             '${Officers.telephone}',
+             '${Officers.education}',
+             '${Officers.experience}',
+             ')
+        `);
+        console.log(Officer);
+        return Officer;
+    }
+    catch(error){
+        console.log(error);
+    }
+}
+
+
+
+
 
 
 module.exports ={
@@ -217,5 +257,7 @@ module.exports ={
     getTransfer,
     createTransfer,
     getVisitor,
-    createVisitor
+    createVisitor,
+    getDetails,
+    createDetails
 };

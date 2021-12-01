@@ -58,6 +58,14 @@ app.get('/vis', async (req, res) => {
 });
 
 
+//Officer details
+app.get('/det', async (req, res) => {
+  console.log('details');
+  res.setHeader('Content-Type', 'application/json');
+  let result=await dbOperation.getDetails(req.headers);
+  res.send(result.recordset);
+});
+
 
 // eslint-disable-next-line no-lone-blocks
 {/**
