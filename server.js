@@ -39,6 +39,16 @@ app.get('/cas', async (req, res) => {
   res.send(result.recordset);
 });
 
+
+//prisoners transfer details
+app.get('/tran', async (req, res) => {
+  console.log('cases');
+  res.setHeader('Content-Type', 'application/json');
+  let result=await dbOperation.getTransfer(req.headers);
+  res.send(result.recordset);
+});
+
+
 // eslint-disable-next-line no-lone-blocks
 {/**
 let Mwaki = new Officers(64343965, '0794323444','NAKURU','KIGANJO','2021-01-12')

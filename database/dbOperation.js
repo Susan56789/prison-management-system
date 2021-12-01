@@ -133,6 +133,41 @@ const createCase = async (cases) =>{
     }
 }
 
+//Transfers
+const getTransfer = async () =>{
+    try{
+        let pool = await sql.connect(config);
+        let Transfer = await pool.request().query("SELECT * from transfers");
+        console.log(Transfer);
+        return Transfer;
+    }
+
+    catch(error){
+        console.log(error);
+    }
+}
+const createTransfer = async (transfers) =>{
+    try{
+        let pool = await sql.connect(config);
+        let Transfer =await pool.request().query(`
+        INSERT INTO transfers VALUES (
+            ${transfers.National_id},
+            ${transfers.File_num},
+            ${transfers.From_prison},
+            ${transfers.To_Prison},
+            ${transfers.Dateoftransfer},
+        `);
+        console.log(Transfer);
+        return Transfer;
+    }
+    catch(error){
+        console.log(error);
+    }
+}
+
+
+
+
 
 
 module.exports ={
@@ -143,5 +178,7 @@ module.exports ={
     getPrisoner,
     createPrisoner,
     getCase,
-    createCase
+    createCase,
+    getTransfer,
+    createTransfer
 };

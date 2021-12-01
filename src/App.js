@@ -16,6 +16,7 @@ import ViewOficcer from './Components/admin/ViewOficcer';
 import Admin from './Components/admin/Admin';
 import ViewPrisoners from './Components/admin/ViewPrisoners';
 import ViewCase from './Components/admin/ViewCase';
+import ViewTransfer from './Components/admin/ViewTransfer';
 
 const App =() =>{
 
@@ -65,6 +66,9 @@ const App =() =>{
 </Route>
 <Route path='/ViewCase'>
   <ViewCase/>
+</Route>
+<Route path='/ViewTransfer'>
+  <ViewTransfer/>
 </Route>
   </Switch>
 </Router>
