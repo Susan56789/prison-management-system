@@ -90,11 +90,11 @@ const Admin = () => {
 		<br/>
 	<li><a href='./NewPrison'><b><button>New Prison</button></b></a></li>
 		<br/>
-	<li><a href='viewcourt.php'><b><button>Court Information</button></b></a></li>
+	<li><a href='./ViewCourt'><b><button>Court Information</button></b></a></li>
 		<br/>
-	<li><a href='viewAnnounce.php'><b><button>View Comment</button></b></a></li>
+	<li><a href='../../Announce'><b><button>View Comment</button></b></a></li>
 		<br/>
-	<li><a href='report.php'><b><button>Report</button></b></a></li>
+	<li><a href='./Reports'><b><button>Report</button></b></a></li>
 		<br/>
     <li><a href='/'><b><button>LOG OUT</button></b></a></li>
 </ul>

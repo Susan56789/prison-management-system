@@ -275,8 +275,6 @@ const createNewP = async (newp) =>{
 }
 
 
-
-
 module.exports ={
     createAdmin,
     getAdmin, 

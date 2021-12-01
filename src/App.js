@@ -21,6 +21,8 @@ import ViewVisitors from './Components/admin/ViewVisitors';
 import VisitorReport from './Components/admin/VisitorReport';
 import OfficerDetails from './Components/admin/OfficerDetails';
 import NewPrison from './Components/admin/NewPrison';
+import ViewCourt from './Components/admin/ViewCourt';
+import Reports from './Components/admin/Reports';
 
 const App =() =>{
 
@@ -85,6 +87,12 @@ const App =() =>{
 </Route>
 <Route path='/NewPrison'>
   <NewPrison />
+</Route>
+<Route path='/ViewCourt'>
+  <ViewCourt/>
+</Route>
+<Route path='/Reports'>
+  <Reports />
 </Route>
   </Switch>
 </Router>
