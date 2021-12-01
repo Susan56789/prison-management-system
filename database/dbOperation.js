@@ -240,7 +240,39 @@ const createDetails = async (Officers) =>{
     }
 }
 
+//New Prisons
+const getNewP = async () =>{
+    try{
+        let pool = await sql.connect(config);
+        let Prison = await pool.request().query("SELECT * from newprison");
+        console.log(Prison);
+        return Prison;
+    }
 
+    catch(error){
+        console.log(error);
+    }
+}
+const createNewP = async (newp) =>{
+    try{
+        let pool = await sql.connect(config);
+        let Prison =await pool.request().query(`
+        INSERT INTO newprison VALUES (
+            ${newp.pno},
+            ${newp.pname},
+            ${newp.location_},
+            ${newp.opendate},
+            ${newp.contact},
+            ${newp.capacity}
+             ')
+        `);
+        console.log(Prison);
+        return Prison;
+    }
+    catch(error){
+        console.log(error);
+    }
+}
 
 
 
@@ -259,5 +291,7 @@ module.exports ={
     getVisitor,
     createVisitor,
     getDetails,
-    createDetails
+    createDetails,
+    getNewP,
+    createNewP
 };

@@ -20,6 +20,7 @@ import ViewTransfer from './Components/admin/ViewTransfer';
 import ViewVisitors from './Components/admin/ViewVisitors';
 import VisitorReport from './Components/admin/VisitorReport';
 import OfficerDetails from './Components/admin/OfficerDetails';
+import NewPrison from './Components/admin/NewPrison';
 
 const App =() =>{
 
@@ -81,6 +82,9 @@ const App =() =>{
 </Route>
 <Route path='/OfficerDetails'>
   <OfficerDetails />
+</Route>
+<Route path='/NewPrison'>
+  <NewPrison />
 </Route>
   </Switch>
 </Router>

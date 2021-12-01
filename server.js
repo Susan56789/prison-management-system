@@ -67,6 +67,15 @@ app.get('/det', async (req, res) => {
 });
 
 
+//New Prisons
+app.get('/np', async (req, res) => {
+  console.log('new prison');
+  res.setHeader('Content-Type', 'application/json');
+  let result=await dbOperation.getNewP(req.headers);
+  res.send(result.recordset);
+});
+
+
 // eslint-disable-next-line no-lone-blocks
 {/**
 let Mwaki = new Officers(64343965, '0794323444','NAKURU','KIGANJO','2021-01-12')
