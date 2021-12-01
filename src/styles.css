@@ -1,4 +1,8 @@
-
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: black;
+    text-align: center;
+}
 
 ul{
 list-style-type: none;

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Navbar from './Navbar';
 import Home from './Home';
 import Footer from './Footer';
@@ -6,10 +6,15 @@ import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Login from './Login';
 import About from './About';
 import Announce from './Announce';
+import PerfomanceMeasures from './PerfomanceMeasures';
+import Recruitment from './Recruitment';
+import employeeDetails from './employeeDetails';
+import LeaveForm from './LeaveForm';
+import Training from './Training';
+import Salary from './Salary';
+
 
 const App =() =>{
-
-
 
   return (
     <div className="App">
@@ -27,6 +32,24 @@ const App =() =>{
     </Route>
     <Route path="/announce">
       <Announce />
+    </Route>
+    <Route path="/PerfomanceMeasures">
+      <PerfomanceMeasures/>
+    </Route>
+    <Route path='/Recruitment'>
+      <Recruitment />
+    </Route>
+    <Route path='/employeeDetails'> 
+      <employeeDetails/>
+    </Route>
+    <Route path='/LeaveForm'>
+      <LeaveForm />
+    </Route>
+    <Route path='/Training'>
+      <Training />
+    </Route>
+    <Route path='/Salary'>
+      <Salary/>
     </Route>
   </Switch>
 </Router>

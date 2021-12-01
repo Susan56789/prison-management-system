@@ -1,5 +1,11 @@
 import React from 'react';
 import './styles.css';
+import './PerfomanceMeasures';
+import './Recruitment';
+import './employeeDetails';
+import './LeaveForm';
+import './Announce';
+
 
 const Navbar = () => {
     return (
@@ -13,12 +19,12 @@ const Navbar = () => {
         
         <nav className='NavBar'>
             <ul>
-                <li><a href="Performance Measure.php">Performance Measure </a></li>
-                <li><a href="Recruitment.php">Recruitment </a></li>
-                <li><a href="employee details.php">employee details </a></li>
-                <li><a href="leaveform.php">leaveform </a></li>
-                <li><a href="Announcements.php">Announcements</a></li>
-                <li><a href="Training.php">Training </a></li>
+                <li><a href="./PerfomanceMeasures">Performance Measure </a></li>
+                <li><a href="./Recruitment">Recruitment </a></li>
+                <li><a href="./employeeDetails.js">employee details </a></li>
+                <li><a href="./LeaveForm">leaveform </a></li>
+                <li><a href="./Announce">Announcements</a></li>
+                <li><a href="./Training">Training </a></li>
                 <li><a href="Salary.php">Salary</a></li>
             </ul>
         

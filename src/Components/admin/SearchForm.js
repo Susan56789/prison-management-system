@@ -1,6 +1,8 @@
 import React from 'react';
 import './login.css';
 import banner from './banner.gif';
+import './Admin';
+import '../../Home';
 
 const SearchForm = () => {
     return (
@@ -20,8 +22,8 @@ const SearchForm = () => {
 			
 			
 		<font size="5">  
-		 <a href="../index.php">Logout</a> |
-         <a href="adminpanel.php">Admin Panel</a>
+		 <a href="/">Logout</a> |
+         <a href="./Admin">Admin Panel</a>
           </font>
             </td>
 </tr>
