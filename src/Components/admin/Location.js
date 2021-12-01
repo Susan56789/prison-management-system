@@ -22,7 +22,7 @@ const Location = () => {
 		        <a href="./SearchForm">Search </a> 
 		        <a href="./Location">Location</a>|
 		        <a href="../../Announce">Complain</a>|
-				 <a href="transfer.php">Prisoner Trans </a> ||
+				 <a href="./ViewTransfer">Prisoner Trans </a> ||
 		        <a href="officertransfer.php">Officer</a>|
 		        <a href="./Registration">Register</a>
 				<a href="./Court">Court</a>
@@ -63,17 +63,17 @@ const Location = () => {
 <td width="552" bgcolor="green">
 <h3>  Admin Management : </h3><br/>
 <ul>
-<li><a href='viewofficer.php'><b>View Officer  Transfer</b></a></li>
+<li><a href='./ViewOfficer'><b>View Officer  Transfer</b></a></li>
 		<br/>
-	<li><a href='viewprisoners.php'><b>Prisoners Information Display</b></a></li>
+	<li><a href='./ViewPrisoners'><b>Prisoners Information Display</b></a></li>
 		<br/>
-		<li><a href='viewcase.php'><b>Case Information View</b></a></li>
+		<li><a href='./ViewCase'><b>Case Information View</b></a></li>
 		<br/>
-	<li><a href='viewtransfer.php'><b>Prisoners Transfer Information</b></a></li>
+	<li><a href='./ViewTransfer'><b>Prisoners Transfer Information</b></a></li>
 		<br/>
-	<li><a href='viewAnnounce.php'><b>View Comment</b></a></li>
+	<li><a href='../../Announce'><b>View Comment</b></a></li>
 		<br/>
-    <li><a href='../index.php'><b>LOG OUT</b></a></li>
+    <li><a href='/'><b>LOG OUT</b></a></li>
 </ul>
 </td>
 </tr>
