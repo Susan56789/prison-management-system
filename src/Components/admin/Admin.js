@@ -24,16 +24,17 @@ const Admin = () => {
           </tr>
 		  <tr>
             <td colspan="7" bgcolor="#yellow" height="1" align="center">
-		      <h1><font size="5">
-	           <a href="/">Home</a> 
-              			   
-		        <a href="../admin/SearchForm">Search </a> 
-                <a href="../admin/Location">Location</a>
-				
-		        <a href="../admin/OfficerTransfer">Officer</a>|
-		        <a href="../admin/Registration">Register</a>
-				<a href="../admin/Court">Court</a>
-		        </font></h1>
+
+				  <nav>
+					  <ul>
+						  <li><a href="/">Home</a> </li>
+						  <li><a href="../admin/SearchForm">Search </a></li>
+						  <li><a href="../admin/Location">Location</a></li>
+						  <li><a href="../admin/OfficerTransfer">Officer</a></li>
+						  <li><a href="../admin/Registration">Register</a></li>
+						  <li><a href="../admin/Court">Court</a></li>
+					  </ul>
+				  </nav>	
             </td>
 			 
 		 
