@@ -1,5 +1,16 @@
-# Prison Management System with React Js
+# Prison Management System
 
-## Express Server
+## Front-end
 
-## MSSQL
+React JS
+
+## Back-End
+
+Express Server
+MSSQL
+
+## Users
+
+ Guest
+ Admin
+ Officer
