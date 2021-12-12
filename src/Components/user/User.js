@@ -2,6 +2,11 @@ import React from 'react';
 import './login.css';
 import banner from './banner.gif';
 import  './prisoner';
+import './Registration';
+import './UserVisitors';
+import './AddOfficer';
+
+//When there are new recuits in the prison, new visitors, new officers, the officer (user) at the reception logs in to register them
 
 const User = () => {
     return (
@@ -21,11 +26,10 @@ const User = () => {
             <td width='71%' valign='top' bgcolor="#FFFFFF">
 
 <br/>
-<h3 align='center'>RESPONSABILITY OF USER(PRISONNER REGISTRAT) </h3>
-<p align='justify'>this is for user
-  that allows the user to register new income prisonners, it is done by the officer in charge of registration 
-  in the prison. he can only register.
-   and his access is secured .
+<h3 align='center'>RESPONSABILITY OF USER(PRISONNER REGISTRATION) </h3>
+<p align='justify'>this is for users. 
+  It allows the user to register new incoming prisoners, it is done by the officer in charge of registration 
+  in the prison. he can only register and his access is secured .
    </p>
 
 			</td>
@@ -44,14 +48,13 @@ const User = () => {
     <br/>
   <li><a href='./Registration'><b>Register Form</b></a></li>
 		<br/>
-	<li><a href='visitors.php'><b>visitors registration </b></a></li>
+	<li><a href='./UserVisitors'><b>visitors registration </b></a></li>
 		<br/> 
-  <li><a href='addofficer.php'><b>Officer registration </b></a></li>
+  <li><a href='./AddOfficer'><b>Officer registration </b></a></li>
     <br/> 
     <li><a href='/'><b>LOG OUT</b></a></li>
 </ul>
 </div>
-
 </div>
 </td>
 </table>

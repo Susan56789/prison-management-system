@@ -26,6 +26,13 @@ import Reports from './Components/admin/Reports';
 import User from './Components/user/User';
 import Prisoner from './Components/user/prisoner';
 import Registration from './Components/user/Registration';
+import UserVisitors from './Components/user/UserVisitors';
+import AddOfficer from './Components/user/AddOfficer';
+import Officer from './Components/officer/Officer';
+import Courts from './Components/officer/Courts';
+
+
+
 
 const App =() =>{
 
@@ -106,9 +113,22 @@ const App =() =>{
 <Route path='/registration'>
   <Registration/>
 </Route>
+<Route path='/UserVisitors'>
+  <UserVisitors/>
+</Route>
+<Route path='/AddOfficer'>
+  <AddOfficer />
+</Route>
+<Route path='/Officer'>
+  <Officer/>
+</Route>
+<Route path='/Courts'>
+  <Courts />
+</Route>
   </Switch>
 </Router>
  
+
       <Footer />
     </div>
   );
