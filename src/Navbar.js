@@ -23,7 +23,7 @@ const Navbar = () => {
                 <li><a href="./Recruitment">Recruitment </a></li>
                 <li><a href="./employeeDetails">employee details </a></li>
                 <li><a href="./LeaveForm">leaveform </a></li>
-                <li><a href="./Announce">Announcements</a></li>
+                <li><a href="./Announce">Feedback</a></li>
                 <li><a href="./Training">Training </a></li>
                 <li><a href="./Salary">Salary</a></li>
             </ul>

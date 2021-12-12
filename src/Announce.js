@@ -2,6 +2,7 @@ import React from 'react';
 import './login.css';
 import banner from './banner.gif';
 
+
 const Announce = () => {
     return (
 
@@ -21,14 +22,15 @@ const Announce = () => {
             </td>
           </tr>
 <td>
-<form action="./processAnnounce.js" method="post">
+<form action="" method="">
+<h4>Send feedback / Complain / Request</h4>
 <table bgcolor="white" height="190" border="0" align="center" width="52%">
-<td width="27%" height="46" bgcolor="#FFFFFF"><b>To:</b></td>
-<td width="73%" bgcolor="#FFFFFF"><input type="text" name="To" /></td>
+<td width="27%" height="46" bgcolor="#FFFFFF"><b>Email:</b></td>
+<td width="73%" bgcolor="#FFFFFF"><input type="text" name="Email" /></td>
 
 <tr>
-<td height="51" bgcolor="#FFFFFF"><b>Id:</b></td>
-<td bgcolor="#FFFFFF"><input type="text" name="id" /></td>
+<td height="51" bgcolor="#FFFFFF"><b>Username:</b></td>
+<td bgcolor="#FFFFFF"><input type="text" name="username" /></td>
 </tr>
 <tr>
 <td height="51" bgcolor="#FFFFFF"><b>Subject:</b></td>

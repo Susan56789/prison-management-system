@@ -2,7 +2,7 @@ import React from 'react';
 import './login.css';
 import banner from './banner.gif';
 
-const Location = () => {
+const Locations = () => {
     return (
         <>
          <header>
@@ -23,7 +23,7 @@ const Location = () => {
 		        <a href="./Location">Location</a>|
 		        <a href="../../Announce">Complain</a>|
 				 <a href="./ViewTransfer">Prisoner Trans </a> ||
-		        <a href="officertransfer.php">Officer</a>|
+		        <a href="./OfficerTransfer">Officer</a>|
 		        <a href="./Registration">Register</a>
 				<a href="./Court">Court</a>
 		        </font></h1>
@@ -48,8 +48,9 @@ const Location = () => {
 <br/>
 <div id="content">
     	<div id="gallerycontainer">
-			<div class="portfolio-area" style={{margin:'0 auto', padding:'140px 20px 20px 20px', width:'720px'}}>	
-				<iframe width="100%" title='iframe1' height="390" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com.ph/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Florida+Bus+Terminal,+West+Kamias,+Quezon+City,+Metro+Manila&amp;aq=0&amp;oq=floridBarangay+West+Kamias,+Cubao,+Quezon+City,+Metro+Manila&amp;sll=14.630676,121.047814&amp;sspn=0.011772,0.021136&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=Florida+Bus+Terminal,+Quezon+City,+Metro+Manila&amp;ll=14.630676,121.047814&amp;spn=0.011772,0.021136&amp;z=14&amp;output=embed"></iframe><br /><small><a href="https://maps.google.com.ph/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Florida+Bus+Terminal,+West+Kamias,+Quezon+City,+Metro+Manila&amp;aq=0&amp;oq=floridBarangay+West+Kamias,+Cubao,+Quezon+City,+Metro+Manila&amp;sll=14.630676,121.047814&amp;sspn=0.011772,0.021136&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=Florida+Bus+Terminal,+Quezon+City,+Metro+Manila&amp;ll=14.630676,121.047814&amp;spn=0.011772,0.021136&amp;z=14" style="color:#0000FF;text-align:left">View Larger Map</a></small>
+			<div class="portfolio-area">	
+				<iframe width="100%" title='iframe1' height="390" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com.ph/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Florida+Bus+Terminal,+West+Kamias,+Quezon+City,+Metro+Manila&amp;aq=0&amp;oq=floridBarangay+West+Kamias,+Cubao,+Quezon+City,+Metro+Manila&amp;sll=14.630676,121.047814&amp;sspn=0.011772,0.021136&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=Florida+Bus+Terminal,+Quezon+City,+Metro+Manila&amp;ll=14.630676,121.047814&amp;spn=0.011772,0.021136&amp;z=14&amp;output=embed"></iframe><br /><small>
+					<a href="https://maps.google.com.ph/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Florida+Bus+Terminal,+West+Kamias,+Quezon+City,+Metro+Manila&amp;aq=0&amp;oq=floridBarangay+West+Kamias,+Cubao,+Quezon+City,+Metro+Manila&amp;sll=14.630676,121.047814&amp;sspn=0.011772,0.021136&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=Florida+Bus+Terminal,+Quezon+City,+Metro+Manila&amp;ll=14.630676,121.047814&amp;spn=0.011772,0.021136&amp;z=14" >View Larger Map</a></small>
 				<div class="column-clear"></div>
             </div>
 			<div class="clearfix"></div>
@@ -94,4 +95,4 @@ const Location = () => {
     )
 }
 
-export default Location;
+export default Locations;

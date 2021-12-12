@@ -2,7 +2,7 @@ import React from 'react';
 import './login.css';
 import './Admin';
 
-const Registration = () => {
+const Registrations = () => {
     return (
         <>
          <header>
@@ -121,4 +121,4 @@ const Registration = () => {
     );
 }
 
-export default Registration;
+export default Registrations;

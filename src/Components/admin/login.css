@@ -20,8 +20,7 @@ body {
 /* gecko based browsers */
 background: -moz-linear-gradient(top, #55aaee, #003366);
 
-/* webkit based browsers */
-background: -webkit-gradient(linear, left top, left bottom, from(#55aaee), to(#003366));
+
 
 }
 .contact_form li{
@@ -133,7 +132,6 @@ background: -webkit-gradient(linear, left top, left bottom, from(#55aaee), to(#0
 /* === Button Style === */
 button.submit {
 	background-color: #68b12f;
-	background: -webkit-gradient(linear, left top, left bottom, from(#68b12f), to(#50911e));
 	background: -webkit-linear-gradient(top, #68b12f, #50911e);
 	background: -moz-linear-gradient(top, #68b12f, #50911e);
 	background: -ms-linear-gradient(top, #68b12f, #50911e);

@@ -13,8 +13,8 @@ const Court = () => {
 <tr bgcolor="#FF0000">
 <td align="center">
 <font size="5">
-<a href="adminpanel.php">HOME</a> 
-<a href="transfer.php">TRANSFER</a> 
+<a href="./Admin">HOME</a> 
+<a href="./ViewTransfer">TRANSFER</a> 
 </font>
 </td>
 </tr>

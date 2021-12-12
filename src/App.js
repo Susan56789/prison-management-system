@@ -30,6 +30,11 @@ import UserVisitors from './Components/user/UserVisitors';
 import AddOfficer from './Components/user/AddOfficer';
 import Officer from './Components/officer/Officer';
 import Courts from './Components/officer/Courts';
+import Locations from './Components/admin/Location';
+import OfficerTransfer from './Components/admin/OfficerTransfer';
+import SearchForm from './Components/admin/SearchForm';
+import Registrations from './Components/admin/Registration';
+import Court from './Components/admin/Court';
 
 
 
@@ -124,6 +129,21 @@ const App =() =>{
 </Route>
 <Route path='/Courts'>
   <Courts />
+</Route>
+<Route path='/Locations'>
+  <Locations/>
+</Route>
+<Route path='/OfficerTransfer'>
+  <OfficerTransfer />
+</Route>
+<Route path='/SearchForm' >
+  <SearchForm />
+</Route>
+<Route path='/Registrations'>
+  <Registrations />
+</Route>
+<Route path='/Court'>
+  <Court />
 </Route>
   </Switch>
 </Router>

@@ -28,11 +28,11 @@ const Admin = () => {
 				  <nav>
 					  <ul>
 						  <li><a href="/">Home</a> </li>
-						  <li><a href="../admin/SearchForm">Search </a></li>
-						  <li><a href="../admin/Location">Location</a></li>
-						  <li><a href="../admin/OfficerTransfer">Officer</a></li>
-						  <li><a href="../admin/Registration">Register</a></li>
-						  <li><a href="../admin/Court">Court</a></li>
+						  <li><a href="./SearchForm">Search </a></li>
+						  <li><a href="./Locations">Location</a></li>
+						  <li><a href="./OfficerTransfer">Officer</a></li>
+						  <li><a href="./Registrations">Register</a></li>
+						  <li><a href="./Court">Court</a></li>
 					  </ul>
 				  </nav>	
             </td>

@@ -17,7 +17,7 @@ const OfficerTransfer = () => {
 </font>
 </td>
 </tr>
-<td border="0" style="margin-top:0px;" align="center" id="container" height="5" bgcolor="#FFFFFF">
+<td border="0"  align="center" id="container" height="5" bgcolor="#FFFFFF">
 
 <form action="processofficer.php" method="post">
 <table bgcolor="white" height="431" border="0" align="center" width="50%">
