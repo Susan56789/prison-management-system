@@ -8,7 +8,7 @@ import About from './About';
 import Announce from './Announce';
 import PerfomanceMeasures from './PerfomanceMeasures';
 import Recruitment from './Recruitment';
-import employeeDetails from './employeeDetails';
+import Employees from './employeeDetails';
 import LeaveForm from './LeaveForm';
 import Training from './Training';
 import Salary from './Salary';
@@ -23,6 +23,9 @@ import OfficerDetails from './Components/admin/OfficerDetails';
 import NewPrison from './Components/admin/NewPrison';
 import ViewCourt from './Components/admin/ViewCourt';
 import Reports from './Components/admin/Reports';
+import User from './Components/user/User';
+import Prisoner from './Components/user/prisoner';
+import Registration from './Components/user/Registration';
 
 const App =() =>{
 
@@ -50,7 +53,7 @@ const App =() =>{
       <Recruitment />
     </Route>
     <Route path='/employeeDetails'> 
-      <employeeDetails/>
+      <Employees/>
     </Route>
     <Route path='/LeaveForm'>
       <LeaveForm />
@@ -93,6 +96,15 @@ const App =() =>{
 </Route>
 <Route path='/Reports'>
   <Reports />
+</Route>
+<Route path='/User'>
+  <User />
+</Route>
+<Route path='/prisoner'>
+  <Prisoner/>
+</Route>
+<Route path='/registration'>
+  <Registration/>
 </Route>
   </Switch>
 </Router>

@@ -5,10 +5,10 @@ import './Home';
 import './About';
 
 
-const employeeDetails = () => {
+const Employees = () => {
     return (
         <>
-                    <table align="center" border="0" bgcolor="green" width="540" cellpadding="9" cellspacing="0" height="525">
+      <table align="center" border="0" bgcolor="green" width="540" cellpadding="9" cellspacing="0" height="525">
           <tr>
             <td colspan="3" height="2"><img src={banner} width="860"  alt=''/></td>
           </tr>
@@ -31,4 +31,4 @@ const employeeDetails = () => {
     );
 }
 
-export default employeeDetails;
+export default Employees;
