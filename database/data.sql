@@ -167,6 +167,7 @@ prisoner varchar(30) NOT NULL
 
 INSERT INTO visitor VALUES (89999089, 'Emmillie', 'Rongai', '2021-02-12', '12:00am', '5:00pm', 'other', 2147483647, 'Qin Yun')
 
+SELECT * FROM visitor
 
 
 /*shows all tables*/

@@ -5,6 +5,8 @@ const dbOperation = require("./database/dbOperation");
 const Admins = require("./database/Admins");
 const Officers = require("./database/Officer");
 const Prisoners = require("./database/Prisoners");
+const { ConnectionTimeOut } = require("./database/dbConfig");
+const { connect } = require("mssql");
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -69,6 +71,25 @@ app.get("/np", async (req, res) => {
   console.log("new prison");
   res.setHeader("Content-Type", "application/json");
   let result = await dbOperation.getNewP(req.headers);
+  res.send(result.recordset);
+});
+
+//Login
+app.post("/userlogin", async (req, res) => {
+  let data = { ...req.body };
+
+  dbOperation.createVisitor(data).then((result) => {
+    res.status(200).json(result);
+  });
+});
+app.post("/officerlogin", async (req, res) => {
+  res.setHeader("Content-Type", "application/json");
+  let result = await dbOperation.createOfficer;
+  res.send(result.recordset);
+});
+app.post("/adminlogin", async (req, res) => {
+  res.setHeader("Content-Type", "application/json");
+  let result = await dbOperation.createAdmin(req.headers);
   res.send(result.recordset);
 });
 

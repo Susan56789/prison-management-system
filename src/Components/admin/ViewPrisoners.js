@@ -37,7 +37,7 @@ const ViewPrisoners = () => {
         bgcolor="green"
         width="1000"
         cellpadding="8"
-        cellspacing="0"
+        cellSpacing="0"
         height="200"
       >
         <tr>
@@ -48,7 +48,7 @@ const ViewPrisoners = () => {
             width="100%"
             border="0"
             cellpadding="3"
-            cellspacing="2"
+            cellSpacing="2"
             bgcolor="green"
           >
             <caption>

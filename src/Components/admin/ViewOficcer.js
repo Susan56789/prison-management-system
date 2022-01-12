@@ -42,7 +42,7 @@ const ViewOficcer = () => {
           bgcolor="green"
           width="1200"
           cellpadding="8"
-          cellspacing="0"
+          cellSpacing="0"
           height="200"
         >
           <tr>
@@ -52,7 +52,7 @@ const ViewOficcer = () => {
                 width="100%"
                 border="0"
                 cellpadding="3"
-                cellspacing="2"
+                cellSpacing="2"
                 bgcolor="gr"
               >
                 <caption>

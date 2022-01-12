@@ -37,7 +37,7 @@ const OfficerDetails = () => {
         bgcolor="green"
         width="1300"
         cellpadding="8"
-        cellspacing="0"
+        cellSpacing="0"
         height="200"
       >
         <td bgcolor="#999999" valign="center"></td>
@@ -48,7 +48,7 @@ const OfficerDetails = () => {
           bgcolor="GREEN"
           border="0"
           cellpadding="3"
-          cellspacing="2"
+          cellSpacing="2"
         >
           <caption>
             <h3>OFFICER DETAILS</h3>
