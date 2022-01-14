@@ -24,17 +24,51 @@ const Locations = () => {
         </tr>
 
         <td colSpan="7" bgcolor="#yellow" height="1" align="center">
-          <h1>
-            <font size="5">
-              <a href="/">Home</a> |<a href="./SearchForm">Search </a>
-              <a href="./Location">Location</a>|
-              <a href="../../Announce">Complain</a>|
-              <a href="./ViewTransfer">Prisoner Trans </a> ||
-              <a href="./OfficerTransfer">Officer</a>|
-              <a href="./Registration">Register</a>
-              <a href="./Court">Court</a>
-            </font>
-          </h1>
+          <ul>
+            <li>
+              <a style={{ margin: "5px", pading: "5px" }} href="./Admin">
+                Home
+              </a>
+            </li>
+            <li>
+              <a style={{ margin: "5px", pading: "5px" }} href="./SearchForm">
+                Search{" "}
+              </a>
+            </li>
+            <li>
+              <a href="./Location">Location</a>
+            </li>
+
+            <li>
+              <a style={{ margin: "5px", pading: "5px" }} href="viewCommentss">
+                Complain
+              </a>
+            </li>
+            <li>
+              <a style={{ margin: "5px", pading: "5px" }} href="./ViewTransfer">
+                Prisoner Trans{" "}
+              </a>
+            </li>
+            <li>
+              <a
+                style={{ margin: "5px", pading: "5px" }}
+                href="./OfficerTransfer"
+              >
+                Officer
+              </a>
+            </li>
+            <li>
+              <a style={{ margin: "5px", pading: "5px" }} href="./Registration">
+                Register
+              </a>
+            </li>
+
+            <li>
+              <a style={{ margin: "5px", pading: "5px" }} href="./Court">
+                Court
+              </a>
+            </li>
+          </ul>
         </td>
 
         <td height="1" colSpan="3" align="right" bgcolor="#006600">
@@ -108,7 +142,7 @@ const Locations = () => {
                     </li>
                     <br />
                     <li>
-                      <a href="../../Announce">
+                      <a href="/viewCommentss">
                         <b>View Comment</b>
                       </a>
                     </li>
@@ -126,7 +160,7 @@ const Locations = () => {
         </tr>
         <tr>
           <td colSpan="3" align="center" bgcolor="#FF0000" height="1">
-            &copy; <strong>&nbsp;2021 KENYA PRISONS SERVICE By Susan</strong>
+            &copy; <strong>&nbsp;2021 Prison Management System By Susan</strong>
           </td>
         </tr>
       </table>
