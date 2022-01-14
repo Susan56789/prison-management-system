@@ -1,8 +1,34 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./login.css";
 import banner from "./banner.gif";
 
 const Announce = () => {
+  const [returnedData, setReturnedData] = useState([]);
+
+  const fetchData = async () => {
+    const newData = await fetch("/comment", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    })
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(res.statusText);
+        }
+        return res.json();
+      })
+      .catch((err) => console.log(err));
+    console.log(newData);
+
+    setReturnedData(newData[0]);
+  };
+
+  useEffect(() => {
+    fetchData();
+  });
+
   return (
     <div>
       <table
@@ -25,56 +51,69 @@ const Announce = () => {
           </td>
         </tr>
         <td>
-          <form action="" method="POST">
-            <h4>Send feedback / Complain / Request</h4>
-            <table
-              bgcolor="white"
-              height="190"
-              border="0"
-              align="center"
-              width="52%"
-            >
-              <td width="27%" height="46" bgcolor="#FFFFFF">
-                <b>Email:</b>
-              </td>
-              <td width="73%" bgcolor="#FFFFFF">
-                <input type="text" name="Email" />
-              </td>
+          <tr bgcolor="green">
+            <th width="15%">Subject</th>
+            <th width="15%">Message</th>
+          </tr>
+          <tr>
+            <td width="15%">{returnedData._subject}</td>
+            <td width="15%">{returnedData._message}</td>
+          </tr>
 
-              <tr>
-                <td height="51" bgcolor="#FFFFFF">
-                  <b>Username:</b>
-                </td>
-                <td bgcolor="#FFFFFF">
-                  <input type="text" name="username" />
-                </td>
-              </tr>
-              <tr>
-                <td height="51" bgcolor="#FFFFFF">
-                  <b>Subject:</b>
-                </td>
-                <td bgcolor="#FFFFFF">
-                  <input type="text" name="Subject" />
-                </td>
+          <tr>
+            <td>
+              <form action="" method="POST">
+                <h4>Send feedback / Complain / Request</h4>
+                <table
+                  bgcolor="white"
+                  height="190"
+                  border="0"
+                  align="center"
+                  width="52%"
+                >
+                  <td width="27%" height="46" bgcolor="#FFFFFF">
+                    <b>National Id:</b>
+                  </td>
+                  <td width="73%" bgcolor="#FFFFFF">
+                    <input type="text" name="Email" />
+                  </td>
 
-                <td>
-                  <strong>
-                    <b>Message</b>
-                  </strong>
-                </td>
-                <td bgcolor="#FFFFFF">
-                  <font size="4" />
-                  <textarea cols="17" rows="4" name="Message"></textarea>
-                </td>
-                <td height="36" bgcolor="#FFFFFF" align="center">
-                  <input type="submit" value="Save" />
-                </td>
-                <td height="26" bgcolor="#FFFFFF" align="center">
-                  <input type="reset" value="Cancel" />
-                </td>
-              </tr>
-            </table>
-          </form>
+                  <tr>
+                    <td height="51" bgcolor="#FFFFFF">
+                      <b>Username:</b>
+                    </td>
+                    <td bgcolor="#FFFFFF">
+                      <input type="text" name="username" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td height="51" bgcolor="#FFFFFF">
+                      <b>Subject:</b>
+                    </td>
+                    <td bgcolor="#FFFFFF">
+                      <input type="text" name="Subject" />
+                    </td>
+
+                    <td>
+                      <strong>
+                        <b>Message</b>
+                      </strong>
+                    </td>
+                    <td bgcolor="#FFFFFF">
+                      <font size="4" />
+                      <textarea cols="17" rows="4" name="Message"></textarea>
+                    </td>
+                    <td height="36" bgcolor="#FFFFFF" align="center">
+                      <input type="submit" value="Save" />
+                    </td>
+                    <td height="26" bgcolor="#FFFFFF" align="center">
+                      <input type="reset" value="Cancel" />
+                    </td>
+                  </tr>
+                </table>
+              </form>
+            </td>
+          </tr>
         </td>
         <td width="1%" bgcolor="#FFFFFF"></td>
       </table>

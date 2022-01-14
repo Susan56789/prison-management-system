@@ -2,11 +2,6 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const pino = require("express-pino-logger")();
 const dbOperation = require("./database/dbOperation");
-const Admins = require("./database/Admins");
-const Officers = require("./database/Officer");
-const Prisoners = require("./database/Prisoners");
-const { ConnectionTimeOut } = require("./database/dbConfig");
-const { connect } = require("mssql");
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -47,6 +42,14 @@ app.get("/tran", async (req, res) => {
   console.log("cases");
   res.setHeader("Content-Type", "application/json");
   let result = await dbOperation.getTransfer(req.headers);
+  res.send(result.recordset);
+});
+
+//Get comments
+app.get("/comment", async (req, res) => {
+  console.log("comments");
+  res.setHeader("Content-Type", "application/json");
+  let result = await dbOperation.getComments(req.headers);
   res.send(result.recordset);
 });
 

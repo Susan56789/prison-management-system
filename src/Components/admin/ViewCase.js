@@ -68,9 +68,7 @@ const ViewCase = () => {
             <td width="10%">{returnedData.Location_}</td>
             <td width="3%">
               <b>
-                <a href="deletecase.php?id=' . $row['National_id'] . '">
-                  Delete
-                </a>
+                <a href="#delete">Delete</a>
               </b>
             </td>
           </tr>

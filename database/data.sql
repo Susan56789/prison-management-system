@@ -15,6 +15,7 @@ _subject  varchar(20) NOT NULL,
 _message varchar(200) NOT NULL
 )
 
+
 INSERT INTO announce VALUES ('administrator','8882', 'complain', 'sms')
 
 

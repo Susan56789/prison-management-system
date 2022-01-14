@@ -155,7 +155,7 @@ const Admin = () => {
                     </li>
                     <br />
                     <li>
-                      <a href="../../Announce">
+                      <a href="/viewCommentss">
                         <b>
                           <button>View Comment</button>
                         </b>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./login.css";
 
-function ViewComments() {
+function ViewCommentss() {
   // function to fetch comments from database
   const [returnedData, setReturnedData] = useState([]);
 
@@ -75,8 +75,8 @@ function ViewComments() {
         </tr>
         <tr>
           <td align="center" bgcolor="green">
-            <a href="/Officer" target="_parent">
-              Officer Panel <b>|</b>
+            <a href="/Admin" target="_parent">
+              Admin Panel <b>|</b>
             </a>
             <a href="/" target="_parent">
               Log out
@@ -88,4 +88,4 @@ function ViewComments() {
   );
 }
 
-export default ViewComments;
+export default ViewCommentss;
