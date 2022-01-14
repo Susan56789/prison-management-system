@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./login.css";
 
 const ViewOfficerss = () => {
   const [returnedData, setReturnedData] = useState([]);
 
   const fetchData = async () => {
-    const newData = await fetch("/api", {
+    const newData = await fetch("/det", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -19,81 +19,82 @@ const ViewOfficerss = () => {
         return res.json();
       })
       .catch((err) => console.log(err));
-    console.log(newData);
-
+    // console.log(newData);
     setReturnedData(newData[0]);
   };
 
-  fetchData();
-
-  console.log(returnedData);
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   return (
     <>
-      <header>
-        <title>PRISON OFFICER RECORD </title>
-      </header>
-      <body>
+      <title>Officer Details</title>
+
+      <table
+        align="center"
+        border="0"
+        bgcolor="green"
+        width="1300"
+        cellpadding="8"
+        cellSpacing="0"
+        height="200"
+      >
+        <td bgcolor="#999999" valign="center"></td>
+
         <table
           align="center"
+          width="100%"
+          bgcolor="GREEN"
           border="0"
-          bgcolor="green"
-          width="1200"
-          cellpadding="8"
-          cellSpacing="0"
-          height="200"
+          cellpadding="3"
+          cellSpacing="2"
         >
-          <tr>
-            <td bgcolor="#999999" valign="center">
-              <table
-                align="center"
-                width="100%"
-                border="0"
-                cellpadding="3"
-                cellSpacing="2"
-                bgcolor="gr"
-              >
-                <caption>
-                  <h3>PRISONER TRANSFER INFORMATION</h3>
-                </caption>
-                <tr bgcolor="green">
-                  {/**
-   * <th width='3%'> id</th>
-<th width='10%'>Phone Number</th>
-<th width='15%'>From Prison</th>
-<th width='10%'>To Prison</th>
-<th width='10%'>Date of Transfer</th>
-   */}
-                  <th>National ID</th>
-                  <th>Phone Number</th>
-                  <th>From Prison</th>
-                  <th>To Prison</th>
-                  <th>Date of Transfer</th>
-                </tr>
-                <tr bgcolor="green">
-                  <td>{returnedData.National_id}</td>
-                  <td>{returnedData.Telephone}</td>
-                  <td>{returnedData.From_prison}</td>
-                  <td> {returnedData.To_prison}</td>
-                  <td>{returnedData.Dateoftransfer}</td>
-                </tr>
-              </table>
+          <caption>
+            <h3>OFFICER DETAILS</h3>
+          </caption>
 
-              <br />
-            </td>
+          <tr bgcolor="#CCCCCC">
+            <th width="3%">National id</th>
+            <th width="10%">First Name</th>
+            <th width="10%">Last Name</th>
+            <th width="15%">Address</th>
+            <th width="10%">Date of birth</th>
+            <th width="10%">Gender</th>
+
+            <th width="10%">Telephone</th>
+
+            <th width="10%">Education</th>
+            <th width="10%">Experiance</th>
           </tr>
-          <tr>
-            <td align="center">
-              <a href="./Officer" target="_parent">
-                Officer Panel <b>|</b>
-              </a>
-              <a href="/" target="_parent">
-                Log out
-              </a>
-            </td>
+
+          <tr bgcolor="grey">
+            <td width="3%">{returnedData.id}</td>
+            <td width="7%">{returnedData.firstname}</td>
+            <td width="10%">{returnedData.lastname}</td>
+            <td width="10%">{returnedData.address_}</td>
+            <td width="10%">{returnedData.dateofbirth}</td>
+            <td width="10%">{returnedData.gender}</td>
+            <td width="3%">{returnedData.telephone}</td>
+            <td width="10%">{returnedData.education}</td>
+            <td width="10%">{returnedData.experience}</td>
           </tr>
         </table>
-      </body>
+
+        <br />
+
+        <tr>
+          <td align="center" bgcolor="green">
+            <a href="./Officer" target="_parent">
+              {" "}
+              Officer Panel <b>|</b>
+            </a>
+            <a href="/" target="_parent">
+              Log out
+            </a>
+          </td>
+        </tr>
+      </table>
     </>
   );
 };
