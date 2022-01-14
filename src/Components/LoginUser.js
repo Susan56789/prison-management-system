@@ -35,7 +35,7 @@ function LoginUser() {
           <td width="50%" align="center" bgcolor="#FFFFFF">
             <form>
               <h2>
-                <b>VISITOR LOGIN</b>
+                <b>USER LOGIN</b>
               </h2>
 
               <tr>
@@ -59,21 +59,6 @@ function LoginUser() {
               <tr>
                 <td bgcolor="#fff" height="36" align="center">
                   <button type="submit">LOGIN</button>
-                </td>
-                <td
-                  bgcolor="#fff"
-                  height="36"
-                  align="center"
-                  className="register"
-                >
-                  <button>
-                    <a
-                      href="/UserVisitors"
-                      style={{ gcolor: "grey", color: "black" }}
-                    >
-                      REGISTER
-                    </a>
-                  </button>
                 </td>
               </tr>
             </form>

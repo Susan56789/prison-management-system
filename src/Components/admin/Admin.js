@@ -70,13 +70,12 @@ const Admin = () => {
             <p align="center">
               <h3 align="center">&nbsp;</h3>
               <br />
-              <h3 align="center">THIS FOR ADMINSITRATOR </h3>
+              <h3 align="center">THIS FOR ADMINISTRATOR </h3>
               <p align="justify">
                 <font face="Arial, Helvetica, sans-serif">
-                  The system enable an Administrator to provide services to
-                  users nd here the administrator can add and upload
-                  information, update, delete, view the record added. The
-                  administrator can also change his account for more security.
+                  The system enables an Administrator to provide services to
+                  users. The administrator can add and upload information,
+                  update, delete, view the recorded data.
                 </font>
               </p>
             </p>

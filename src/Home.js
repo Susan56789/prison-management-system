@@ -46,7 +46,7 @@ const Home = () => {
 
       <tr>
         <td>
-          <h2>Prison Management System Online </h2>
+          <h2>Online Prison Management System </h2>
         </td>
       </tr>
     </table>

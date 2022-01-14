@@ -11,8 +11,8 @@ const Court = () => {
       <table border="1" bgcolor="#FFFFFF" align="center" width="54%">
         <tr bgcolor="#FF0000">
           <td align="center">
-            <font size="5">
-              <a href="./Admin">HOME</a>
+            <font size="4">
+              <a href="./Admin">HOME</a> ||
               <a href="./ViewTransfer">TRANSFER</a>
             </font>
           </td>

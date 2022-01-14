@@ -59,13 +59,6 @@ const ViewTransferss = () => {
               <td>{returnedData.From_prison}</td>
               <td>{returnedData.To_Prison}</td>
               <td>{returnedData.Dateoftransfer}</td>
-              <td>
-                <b>
-                  <a href="deletetransfer.php?id=' . $row['National_id'] . '">
-                    Delete
-                  </a>
-                </b>
-              </td>
             </tr>
           </table>
 

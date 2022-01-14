@@ -41,7 +41,7 @@ const Login = () => {
           </td>
           <td>
             <font size="4">
-              <a href="/userLogin">Visitor</a>
+              <a href="/userLogin">User</a>
               <br />
               <a href="/officerLogin">Officer</a>
               <br />

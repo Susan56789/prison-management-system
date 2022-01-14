@@ -50,6 +50,7 @@ import ViewNewPrison from "./Components/officer/ViewNewPrison";
 import ViewOfficerss from "./Components/officer/ViewOfficerss";
 import ViewTransferss from "./Components/officer/ViewTransferss";
 import ViewCommentss from "./Components/admin/ViewCommentss";
+import Feedbacks from "./FeedbackForm";
 
 const App = () => {
   return (
@@ -197,6 +198,9 @@ const App = () => {
           </Route>
           <Route path="/viewCommentss">
             <ViewCommentss />
+          </Route>
+          <Route path="/Feedbacks">
+            <Feedbacks />
           </Route>
         </Switch>
       </Router>

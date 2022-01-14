@@ -6,8 +6,9 @@ import "./Registration";
 import "./UserVisitors";
 import "./AddOfficer";
 
-//When there are new recuits in the prison, new visitors, new officers, the officer (user) at the reception logs in to register them
-
+/*When there are new recuits in the prison, new visitors, new officers, 
+the officer (user) at the reception logs in to register them
+*/
 const User = () => {
   return (
     <>
@@ -39,13 +40,12 @@ const User = () => {
 
         <td width="71%" valign="top" bgcolor="#FFFFFF">
           <br />
-          <h3 align="center">
-            RESPONSABILITY OF USER(PRISONNER REGISTRATION){" "}
-          </h3>
+          <h3 align="center">RESPONSABILITY OF USER(NEW REGISTRATIONS) </h3>
           <p align="justify">
-            this is for users. It allows the user to register new incoming
-            prisoners, it is done by the officer in charge of registration in
-            the prison. he can only register and his access is secured .
+            This is for the officer incharge of registration at the prison
+            reception. It allows the user to register new incoming prisoners,
+            register new visitors and new officers . They can only register and
+            his access is secured .
           </p>
         </td>
         <td width="25%" bgcolor="green" valign="top"></td>
@@ -59,21 +59,19 @@ const User = () => {
                 <ul>
                   <li>
                     <a href="./prisoner">
-                      <b>Prisoner Reg</b>
+                      <b>Prisoner Registration</b>
                     </a>
                   </li>
                   <br />
-                  {/*<li><a href='./Registration'><b>Register Form</b></a></li>**/}
-                  <br />
                   <li>
                     <a href="./UserVisitors">
-                      <b>visitors registration </b>
+                      <b>Visitor Registration</b>
                     </a>
                   </li>
                   <br />
                   <li>
                     <a href="./AddOfficer">
-                      <b>Officer registration </b>
+                      <b>Officer Registration </b>
                     </a>
                   </li>
                   <br />

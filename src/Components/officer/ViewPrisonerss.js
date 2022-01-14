@@ -86,11 +86,6 @@ function ViewPrisonerss() {
               <td>{returnedData.Sentence}</td>
               <td>{returnedData.File_num}</td>
               <td>{returnedData.prison}</td>
-              <td>
-                <b>
-                  <a href="#delete'">Delete</a>
-                </b>
-              </td>
             </tr>
           </table>
         </tr>

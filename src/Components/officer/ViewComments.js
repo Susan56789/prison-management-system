@@ -64,12 +64,6 @@ function ViewComments() {
               <td width="3%">{returnedData._to}</td>
               <td width="15%">{returnedData._subject}</td>
               <td width="10%">{returnedData._message}</td>
-
-              <td width="3%">
-                <b>
-                  <a href="#delete">Delete</a>
-                </b>
-              </td>
             </tr>
           </table>
         </tr>

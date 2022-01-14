@@ -5,6 +5,7 @@ import "./Recruitment";
 import "./employeeDetails";
 import "./LeaveForm";
 import "./Announce";
+import "./FeedbackForm";
 
 const Navbar = () => {
   return (
@@ -28,7 +29,7 @@ const Navbar = () => {
                 <a href="./LeaveForm">leaveform </a>
               </li>
               <li>
-                <a href="./Announce">Feedback</a>
+                <a href="./Feedbacks">Feedback</a>
               </li>
               <li>
                 <a href="./Training">Training </a>

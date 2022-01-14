@@ -41,11 +41,8 @@ const Officer = () => {
               <h3 align="center"> PRISON MNGNT SYSTEM FOR THE OFFICER </h3>
               <p align="justify">
                 <font face="Arial, Helvetica, sans-serif">
-                  This user has the abilty to view information,edit and delete.
-                  this is for user The system enable an Administrator to provide
-                  services to users nd here the administrator can add and upload
-                  information, update, delete, view the record added. The
-                  administrator can also change his account for more security.
+                  The officer has the abilty to view all prison information
+                  without editing.
                 </font>
               </p>
             </td>
