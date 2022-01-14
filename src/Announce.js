@@ -60,7 +60,7 @@ const Announce = () => {
             <td width="15%">{returnedData._message}</td>
           </tr>
 
-          <tr>
+          <tr width="50%" style={{ height: "auto", border: "1 px solid gold" }}>
             <td>
               <form action="" method="POST">
                 <h4>Send feedback / Complain / Request</h4>
@@ -71,7 +71,7 @@ const Announce = () => {
                   align="center"
                   width="52%"
                 >
-                  <td width="27%" height="46" bgcolor="#FFFFFF">
+                  <td width="27%" height="20" bgcolor="#FFFFFF">
                     <b>National Id:</b>
                   </td>
                   <td width="73%" bgcolor="#FFFFFF">
@@ -79,7 +79,7 @@ const Announce = () => {
                   </td>
 
                   <tr>
-                    <td height="51" bgcolor="#FFFFFF">
+                    <td height="20" bgcolor="#FFFFFF">
                       <b>Username:</b>
                     </td>
                     <td bgcolor="#FFFFFF">
@@ -87,7 +87,7 @@ const Announce = () => {
                     </td>
                   </tr>
                   <tr>
-                    <td height="51" bgcolor="#FFFFFF">
+                    <td height="20" bgcolor="#FFFFFF">
                       <b>Subject:</b>
                     </td>
                     <td bgcolor="#FFFFFF">
@@ -103,8 +103,8 @@ const Announce = () => {
                       <font size="4" />
                       <textarea cols="17" rows="4" name="Message"></textarea>
                     </td>
-                    <td height="36" bgcolor="#FFFFFF" align="center">
-                      <input type="submit" value="Save" />
+                    <td height="30" bgcolor="#FFFFFF" align="center">
+                      <input type="submit" value="Send" />
                     </td>
                     <td height="26" bgcolor="#FFFFFF" align="center">
                       <input type="reset" value="Cancel" />

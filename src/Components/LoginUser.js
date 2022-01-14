@@ -67,7 +67,12 @@ function LoginUser() {
                   className="register"
                 >
                   <button>
-                    <a href="/UserVisitors">REGISTER</a>
+                    <a
+                      href="/UserVisitors"
+                      style={{ gcolor: "grey", color: "black" }}
+                    >
+                      REGISTER
+                    </a>
                   </button>
                 </td>
               </tr>
