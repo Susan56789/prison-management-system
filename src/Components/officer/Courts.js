@@ -9,7 +9,7 @@ const Courts = () => {
           <td align="center">
             <font size="4">
               <a href="./Officer">HOME</a> ||
-              <a href="transfer.php">TRANSFERS</a>
+              <a href="/transferForm">TRANSFERS</a>
             </font>
           </td>
         </tr>

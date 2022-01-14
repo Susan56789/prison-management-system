@@ -38,6 +38,16 @@ import Court from "./Components/admin/Court";
 import LoginUser from "./Components/LoginUser";
 import LoginOfficer from "./Components/LoginOfficer";
 import LoginAdmin from "./Components/LoginAdmin";
+import NewPrisons from "./Components/officer/NewPrison";
+import SearchForms from "./Components/officer/SearchForm";
+import TransferForms from "./Components/officer/TransferForm";
+import ViewComments from "./Components/officer/ViewComments";
+import ViewPrisonerss from "./Components/officer/ViewPrisonerss";
+import ViewCourtss from "./Components/officer/ViewCourtss";
+import ViewVisitorss from "./Components/officer/ViewVisitorss";
+import ViewNewPrison from "./Components/officer/ViewNewPrison";
+import ViewOfficerss from "./Components/officer/ViewOfficerss";
+import ViewTransferss from "./Components/officer/ViewTransferss";
 
 const App = () => {
   return (
@@ -152,6 +162,36 @@ const App = () => {
           </Route>
           <Route path="/adminLogin">
             <LoginAdmin />
+          </Route>
+          <Route path="/newPrisons">
+            <NewPrisons />
+          </Route>
+          <Route path="/officerSearch">
+            <SearchForms />
+          </Route>
+          <Route path="/transferForm">
+            <TransferForms />
+          </Route>
+          <Route path="/viewComments">
+            <ViewComments />
+          </Route>
+          <Route path="/viewPrisonerss">
+            <ViewPrisonerss />
+          </Route>
+          <Route path="/viewCourts">
+            <ViewCourtss />
+          </Route>
+          <Route path="/viewVisitorss">
+            <ViewVisitorss />
+          </Route>
+          <Route path="/viewNewPrisons">
+            <ViewNewPrison />
+          </Route>
+          <Route path="/viewOfficerss">
+            <ViewOfficerss />
+          </Route>
+          <Route path="/viewTransferss">
+            <ViewTransferss />
           </Route>
         </Switch>
       </Router>
