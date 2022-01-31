@@ -66,7 +66,8 @@ const getPrisoner = async () => {
 const createPrisoner = async (prisoners) => {
   try {
     let pool = await sql.connect(config);
-    let Prisoner = await pool.request().query(`
+    let Prisoner = await pool.request().query(
+      `
         INSERT INTO registration  VALUES (
             ${prisoners.id},
             ${prisoners.Fullname},
@@ -82,7 +83,8 @@ const createPrisoner = async (prisoners) => {
             ${prisoners.Sentence},
             ${prisoners.File_num},
             ${prisoners.prison}
-        `);
+        `
+    );
     console.log(Prisoner);
     return Prisoner;
   } catch (error) {

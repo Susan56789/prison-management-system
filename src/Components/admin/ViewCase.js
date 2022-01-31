@@ -64,7 +64,9 @@ const ViewCase = () => {
             <tr bgcolor="grey">
               <td width="3%">{Data.National_Id}</td>
               <td width="7%">{Data.File_number}</td>
-              <td width="10%">{Data.Dateoftrail}</td>
+              <td width="10%">
+                {new Date(Data.Dateoftrail).toLocaleDateString() + ""}
+              </td>
               <td width="10%">{Data.Sentence}</td>
               <td width="10%">{Data.Location_}</td>
               <td width="3%">

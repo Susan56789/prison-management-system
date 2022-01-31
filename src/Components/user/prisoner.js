@@ -1,8 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import "./login.css";
 import banner from "./banner.gif";
 
 const Prisoner = () => {
+  const [returnedData, setReturnedData] = useState([]);
+
+  const fetchData = async () => {
+    const newData = await fetch("/prisons", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    }).then((res) => res.json());
+    console.log(newData);
+
+    setReturnedData(newData);
+  };
+
+  fetchData();
+
   return (
     <>
       <table
@@ -26,202 +43,88 @@ const Prisoner = () => {
             </font>
           </td>
         </tr>
-        <tr>
-          <td width="25%" bgcolor="#FFFFFF">
+        <div>
+          <div width="25%" bgcolor="#FFFFFF">
             &nbsp;&nbsp;
-            <td width="50%" align="center" bgcolor="white">
+            <div width="50%" align="center" bgcolor="white">
               <div id="content" className="ctrdiv">
                 <form id="frmReg" method="POST" action="prisonerval.php">
                   <h2 id="hdr_title">Register Prisoner </h2>
-                  <div className="control_input">
-                    <label for="Nid" className="label">
-                      National Id
+                  <>
+                    <td className="control_input">
+                      <label className="label">National Id</label>
+                      <input
+                        type="text"
+                        id="Nid"
+                        name="Nid"
+                        size="8"
+                        maxlength="8"
+                        className="reg_fields"
+                        required
+                        placeholder="00001111"
+                      />
+                    </td>
+                  </>
+                  <>
+                    <td className="control_input">
+                      <label for="Fname" className="label">
+                        Full Name
+                      </label>
+                      <input
+                        type="text"
+                        id="Fname"
+                        name="Fname"
+                        className="reg_fields"
+                        required
+                        placeholder="Otienno jin"
+                      />
+                    </td>
+                  </>
+
+                  <tr className="control_input">
+                    <label for="date" className="label">
+                      Birth Date
                     </label>
+
                     <input
-                      type="text"
-                      id="Nid"
-                      name="Nid"
-                      size="8"
-                      maxlength="8"
+                      type="date"
+                      id="txtDay"
+                      name="txtDay"
                       className="reg_fields"
-                      required
-                      placeholder="00001111"
                     />
-                  </div>
-                  <div className="control_input">
-                    <label for="Fname" className="label">
-                      Full Name
+                  </tr>
+
+                  <div className="control_input"></div>
+
+                  <tr className="control_input">
+                    <label for="datein" className="label">
+                      Date In
                     </label>
+
                     <input
-                      type="text"
-                      id="Fname"
-                      name="Fname"
+                      type="date"
+                      id="TxtDay"
+                      name="TxtDay"
                       className="reg_fields"
-                      required
-                      placeholder="Otienno jin"
                     />
-                  </div>
+                    <td>
+                      <label for="opendate" className="label">
+                        Date Out
+                      </label>
+                    </td>
 
-                  <div className="control_input">
-                    <div>
-                      <table>
-                        <tr>
-                          <td>
-                            <label for="date" className="label">
-                              Birth Date
-                            </label>
-                          </td>
-                          <td>
-                            <select
-                              id="lMonth"
-                              name="1Month"
-                              className="reg_fields"
-                            >
-                              <option selected="selected" value="01">
-                                January
-                              </option>
-                              <option value="02">February</option>
-                              <option value="03">March</option>
-                              <option value="04">April</option>
-                              <option value="05">May</option>
-                              <option value="06">June</option>
-                              <option value="07">July</option>
-                              <option value="08">August</option>
-                              <option value="09">September</option>
-                              <option value="10">October</option>
-                              <option value="11">November</option>
-                              <option value="12">December</option>
-                            </select>
-                          </td>
-                          <td>
-                            <input
-                              type="text"
-                              id="txtDay"
-                              name="txtDay"
-                              value="DD"
-                              className="reg_fields"
-                            />
-                            <input
-                              type="text"
-                              id="txtYear"
-                              name="txtYear"
-                              value="YYYY"
-                              className="reg_fields"
-                            />
-                          </td>
-                        </tr>
-                      </table>
-                    </div>
-                  </div>
+                    <td>
+                      <input
+                        type="date"
+                        id="TXtDay"
+                        name="TXtDay"
+                        className="reg_fields"
+                      />
+                    </td>
+                  </tr>
 
-                  <div className="control_input">
-                    <div>
-                      <table>
-                        <tr>
-                          <td>
-                            <label for="datein" className="label">
-                              Date In
-                            </label>
-                          </td>
-                          <td>
-                            <select
-                              id="lMonth"
-                              name="2Month"
-                              className="reg_fields"
-                            >
-                              <option selected="selected" value="01">
-                                January
-                              </option>
-                              <option value="02">February</option>
-                              <option value="03">March</option>
-                              <option value="04">April</option>
-                              <option value="05">May</option>
-                              <option value="06">June</option>
-                              <option value="07">July</option>
-                              <option value="08">August</option>
-                              <option value="09">September</option>
-                              <option value="10">October</option>
-                              <option value="11">November</option>
-                              <option value="12">December</option>
-                            </select>
-                          </td>
-                          <td>
-                            <input
-                              type="text"
-                              id="TxtDay"
-                              name="TxtDay"
-                              value="DD"
-                              className="reg_fields"
-                            />
-                            <input
-                              type="text"
-                              id="TxtYear"
-                              name="TxtYear"
-                              value="YYYY"
-                              className="reg_fields"
-                            />
-                          </td>
-                        </tr>
-                      </table>
-                    </div>
-                  </div>
-
-                  <div className="control_input">
-                    <div>
-                      <table>
-                        <tr>
-                          <td>
-                            <label for="opendate" className="label">
-                              Date Out
-                            </label>
-                          </td>
-                          <td>
-                            <select
-                              id="lMonth"
-                              name="3Month"
-                              className="reg_fields"
-                            >
-                              <option selected="selected" value="01">
-                                January
-                              </option>
-                              <option value="02">February</option>
-                              <option value="03">March</option>
-                              <option value="04">April</option>
-                              <option value="05">May</option>
-                              <option value="06">June</option>
-                              <option value="07">July</option>
-                              <option value="08">August</option>
-                              <option value="09">September</option>
-                              <option value="10">October</option>
-                              <option value="11">November</option>
-                              <option value="12">December</option>
-                            </select>
-                          </td>
-                          <td>
-                            <input
-                              type="text"
-                              id="TXtDay"
-                              name="TXtDay"
-                              value="DD"
-                              className="reg_fields"
-                            />
-                            <input
-                              type="text"
-                              id="TXtYear"
-                              name="TXtYear"
-                              value="YYYY"
-                              className="reg_fields"
-                            />
-                          </td>
-                        </tr>
-                      </table>
-                    </div>
-                  </div>
-
-                  <div className="control_input">
-                    <label for="address" className="label">
-                      Address
-                    </label>
+                  <td className="control_input">
+                    <label className="label">Address</label>
                     <input
                       type="text"
                       id="address"
@@ -230,120 +133,97 @@ const Prisoner = () => {
                       required
                       placeholder="Rongai"
                     />
+                  </td>
+
+                  <div>
+                    <>
+                      <td>
+                        <label className="label">County</label>
+                      </td>
+                      <td>
+                        <select
+                          id="county"
+                          name="county"
+                          className="reg_fields"
+                        >
+                          <option selected="selected">Lamu</option>
+                          <option>Nairobi</option>
+                          <option>Nakuru</option>
+                          <option>Mombassa</option>
+                          <option>Machakos</option>
+                          <option>Malindi</option>
+                          <option>Mandera</option>
+                          <option>Meru</option>
+                        </select>
+                      </td>
+                    </>
                   </div>
 
                   <div>
-                    <table>
-                      <tr>
-                        <td>
-                          <label for="county" className="label">
-                            County
-                          </label>
-                        </td>
-                        <td>
-                          <select
-                            id="county"
-                            name="county"
-                            className="reg_fields"
-                          >
-                            <option selected="selected" value="01">
-                              Lamu
-                            </option>
-                            <option value="02">Nairobi</option>
-                            <option value="03">Nakuru</option>
-                            <option value="04">Mombassa</option>
-                            <option value="04">Machakos</option>
-                            <option value="06">Malindi</option>
-                            <option value="07">Mandera</option>
-                            <option value="08">Meru</option>
-                          </select>
-                        </td>
-                      </tr>
-                    </table>
+                    <>
+                      <td>
+                        <label className="label">Gender</label>
+                      </td>
+                      <td>
+                        <select
+                          id="Gender"
+                          name="Gender"
+                          className="reg_fields"
+                        >
+                          <option selected="selected">Male</option>
+                          <option>Female</option>
+                        </select>
+                      </td>
+                    </>
                   </div>
+
+                  <>
+                    <tr>
+                      <td>
+                        <label className="label">Education Level</label>
+                      </td>
+                      <td>
+                        <select
+                          id="education"
+                          name="education"
+                          className="reg_fields"
+                        >
+                          <option selected="selected">KECP</option>
+                          <option>Never</option>
+                          <option>O level</option>
+                          <option>Certificate</option>
+                          <option>Diploma</option>
+                          <option>Bachelor Degree</option>
+                          <option>PGD</option>
+                          <option>Above</option>
+                        </select>
+                      </td>
+                    </tr>
+                  </>
 
                   <div>
-                    <table>
-                      <tr>
-                        <td>
-                          <label for="opendate" className="label">
-                            Gender
-                          </label>
-                        </td>
-                        <td>
-                          <select
-                            id="Gender"
-                            name="Gender"
-                            className="reg_fields"
-                          >
-                            <option selected="selected" value="01">
-                              Male
-                            </option>
-                            <option value="02">Female</option>
-                          </select>
-                        </td>
-                      </tr>
-                    </table>
+                    <>
+                      <td>
+                        <label className="label">Maritial Status</label>
+                      </td>
+                      <td>
+                        <select
+                          id="status"
+                          name="status"
+                          className="reg_fields"
+                        >
+                          <option selected="selected">Select</option>
+                          <option>Divorced</option>
+                          <option>Widowed</option>
+                          <option>Married</option>
+                          <option>Single</option>
+                          <option>In Relationship</option>
+                        </select>
+                      </td>
+                    </>
                   </div>
 
-                  <div>
-                    <table>
-                      <tr>
-                        <td>
-                          <label for="opendate" className="label">
-                            Education Level
-                          </label>
-                        </td>
-                        <td>
-                          <select
-                            id="education"
-                            name="education"
-                            className="reg_fields"
-                          >
-                            <option selected="selected" value="01">
-                              KECP
-                            </option>
-                            <option value="02">Never</option>
-                            <option value="03">O level</option>
-                            <option value="04">Certificate</option>
-                            <option value="05">Diploma</option>
-                            <option value="06">Bachelor Degree</option>
-                            <option value="07">PGD</option>
-                            <option value="08">Above</option>
-                          </select>
-                        </td>
-                      </tr>
-                    </table>
-                  </div>
-
-                  <div>
-                    <table>
-                      <tr>
-                        <td>
-                          <label for="status" className="label">
-                            Maritial Status
-                          </label>
-                        </td>
-                        <td>
-                          <select
-                            id="status"
-                            name="status"
-                            className="reg_fields"
-                          >
-                            <option selected="selected" value="01">
-                              Fiancee
-                            </option>
-                            <option value="02">Divorced</option>
-                            <option value="03">Married</option>
-                            <option value="04">Single</option>
-                            <option value="05">In Relationship</option>
-                          </select>
-                        </td>
-                      </tr>
-                    </table>
-                  </div>
-
-                  <div className="control_input">
+                  <td className="control_input">
                     <label for="Pname" className="label">
                       Offence
                     </label>
@@ -354,37 +234,31 @@ const Prisoner = () => {
                       required
                       placeholder="fill this box"
                     ></textarea>
-                  </div>
+                  </td>
 
-                  <div>
-                    <table>
-                      <tr>
-                        <td>
-                          <label for="opendate" className="label">
-                            Sentence
-                          </label>
-                        </td>
-                        <td>
-                          <select
-                            id="sentence"
-                            name="sentence"
-                            className="reg_fields"
-                          >
-                            <option selected="selected" value="01">
-                              3 months
-                            </option>
-                            <option value="02">6 months</option>
-                            <option value="03">1 year</option>
-                            <option value="04">2 years</option>
-                            <option value="05">3 year</option>
-                            <option value="06">5 year</option>
-                            <option value="07">7 year</option>
-                            <option value="08">10 year</option>
-                          </select>
-                        </td>
-                      </tr>
-                    </table>
-                  </div>
+                  <>
+                    <>
+                      <td>
+                        <label className="label">Sentence</label>
+                      </td>
+                      <td>
+                        <select
+                          id="sentence"
+                          name="sentence"
+                          className="reg_fields"
+                        >
+                          <option selected="selected">3 months</option>
+                          <option>6 months</option>
+                          <option>1 year</option>
+                          <option>2 years</option>
+                          <option>3 year</option>
+                          <option>5 year</option>
+                          <option>7 year</option>
+                          <option>10 year</option>
+                        </select>
+                      </td>
+                    </>
+                  </>
 
                   <div className="control_input">
                     <label for="Filenum" className="label">
@@ -404,23 +278,23 @@ const Prisoner = () => {
 
                   <div className="control_input">
                     <div>
-                      <table>
-                        <td>
-                          <label for="Campus" className="label">
-                            Prison
-                          </label>
-                        </td>
-                        <td>
-                          <select
-                            id="prison"
-                            name="prison"
-                            className="reg_fields"
-                          >
-                            <option value="">--Select prison--</option>
-                            {/**Select from Database */}
-                          </select>
-                        </td>
-                      </table>
+                      <td>
+                        <label for="Campus" className="label">
+                          Prison
+                        </label>
+                      </td>
+                      <td>
+                        <select
+                          id="prison"
+                          name="prison"
+                          className="reg_fields"
+                        >
+                          <option value="">--Select prison--</option>
+                          {returnedData.map((Data) => (
+                            <option>{Data.pname}</option>
+                          ))}
+                        </select>
+                      </td>
 
                       <div className="control_input">
                         <input
@@ -438,9 +312,9 @@ const Prisoner = () => {
                   </div>
                 </form>
               </div>
-            </td>
-          </td>
-        </tr>
+            </div>
+          </div>
+        </div>
       </table>
     </>
   );

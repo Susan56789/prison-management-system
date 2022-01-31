@@ -14,12 +14,15 @@ const UserVisitors = () => {
   const [gender, setGender] = useState("");
   const [relationship, setRelationship] = useState("");
   const [prisoner, setprisoner] = useState("");
-  const [message, setMessage] = useState("");
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState(null);
+  const [returnedData, setReturnedData] = useState([]);
 
   let sendData = async (e) => {
-    //e.preventDefault();
+    e.preventDefault();
 
-    const newData = await fetch("/userlogin", {
+    return await fetch("/regVisitor", {
       method: "POST",
       body: JSON.stringify({
         id: id,
@@ -33,32 +36,36 @@ const UserVisitors = () => {
         relationship: relationship,
         county: county,
         prisoner: prisoner,
-        message: message,
       }),
-    });
-    //let Report = await newData.json();
+    })
+      .then((res) => {
+        setLoading(false);
+        setMessage("Registration successful");
+        return res;
+      })
+      .catch((error) => {
+        setLoading(false);
 
-    if (newData.status === 200) {
-      setid("");
-      setprisoner("");
-      setfullname("");
-      setAddress_("");
-      setDate("");
-      setTimein("");
-      setTimeoutt("");
-      setRelationship("");
-      setGender("");
-      setCounty("");
-      setMonth("");
-      setMessage("User created Successfully");
-    } else {
-      setMessage("Some error occored. Ry again !");
-    }
+        setError("Something is wrong. Please try again later !");
+
+        console.error("Error >>>", error);
+      });
   };
 
-  useEffect(() => {
-    sendData();
-  });
+  const fetchData = async () => {
+    const newData = await fetch("/pris", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    }).then((res) => res.json());
+    console.log(newData);
+
+    setReturnedData(newData);
+  };
+
+  fetchData();
 
   return (
     <>
@@ -88,10 +95,10 @@ const UserVisitors = () => {
             &nbsp;&nbsp;
             <td width="50%" align="center" bgcolor="white">
               <div id="content" className="ctrdiv">
-                <form id="frmReg" method="POST" onSubmit={sendData}>
+                <form id="frmReg">
                   <h2 id="hdr_title">Register visitor </h2>
                   <div className="control_input">
-                    <label for="Nid" className="label">
+                    <label id="Nid" className="label">
                       National Id
                     </label>
                     <input
@@ -107,7 +114,7 @@ const UserVisitors = () => {
                     />
                   </div>
                   <div className="control_input">
-                    <label for="Fname" id="name" className="label">
+                    <label id="Fname" className="label">
                       Full Name
                     </label>
                     <input
@@ -126,47 +133,12 @@ const UserVisitors = () => {
                       <table>
                         <tr>
                           <td>
-                            <label for="date" className="label">
+                            <label id="date" className="label">
                               Birth Date
                             </label>
                           </td>
                           <td>
-                            <select
-                              id="lMonth"
-                              name="1Month"
-                              className="reg_fields"
-                            >
-                              <option selected="selected" value="01">
-                                January
-                              </option>
-                              <option value="02">February</option>
-                              <option value="03">March</option>
-                              <option value="04">April</option>
-                              <option value="05">May</option>
-                              <option value="06">June</option>
-                              <option value="07">July</option>
-                              <option value="08">August</option>
-                              <option value="09">September</option>
-                              <option value="10">October</option>
-                              <option value="11">November</option>
-                              <option value="12">December</option>
-                            </select>
-                          </td>
-                          <td>
-                            <input
-                              type="text"
-                              id="txtDay"
-                              name="txtDay"
-                              value="DD"
-                              className="reg_fields"
-                            />
-                            <input
-                              type="text"
-                              id="txtYear"
-                              name="txtYear"
-                              value="YYYY"
-                              className="reg_fields"
-                            />
+                            <input type="date" />
                           </td>
                         </tr>
                       </table>
@@ -177,35 +149,19 @@ const UserVisitors = () => {
                     <br />
                     <table>
                       <td>
-                        <label for="uemail" className="label">
-                          Date
+                        <label id="uemail" className="label">
+                          Date in
                         </label>
                       </td>
                       <td>
-                        <select
+                        <input
+                          type="date"
                           onChange={(e) => setMonth(e.target.value)}
-                          id="Month"
-                          name="Month"
-                          className="reg_fields"
-                        >
-                          <option selected="selected" value="01">
-                            January
-                          </option>
-                          <option value="02">February</option>
-                          <option value="03">March</option>
-                          <option value="04">April</option>
-                          <option value="05">May</option>
-                          <option value="06">June</option>
-                          <option value="07">July</option>
-                          <option value="08">August</option>
-                          <option value="09">September</option>
-                          <option value="10">October</option>
-                          <option value="11">November</option>
-                          <option value="12">December</option>
-                        </select>
+                        />
                       </td>
+
                       <td>
-                        <label for="timein" id="timein" className="label">
+                        <label id="timein" className="label">
                           Time In
                         </label>
                       </td>
@@ -236,7 +192,7 @@ const UserVisitors = () => {
                     <div>
                       <table>
                         <td>
-                          <label for="timeout" className="label">
+                          <label id="timeout" className="label">
                             Time Out
                           </label>
                         </td>
@@ -266,7 +222,7 @@ const UserVisitors = () => {
                   </div>
 
                   <div className="control_input">
-                    <label for="address" className="label">
+                    <label id="address" className="label">
                       Address
                     </label>
                     <input
@@ -284,7 +240,7 @@ const UserVisitors = () => {
                     <table>
                       <tr>
                         <td>
-                          <label for="county" className="label">
+                          <label id="county" className="label">
                             County
                           </label>
                         </td>
@@ -315,7 +271,7 @@ const UserVisitors = () => {
                     <table>
                       <tr>
                         <td>
-                          <label for="opendate" className="label">
+                          <label id="opendate" className="label">
                             Gender
                           </label>
                         </td>
@@ -341,7 +297,7 @@ const UserVisitors = () => {
                   <div>
                     <table>
                       <td>
-                        <label for="relationship" className="label">
+                        <label id="relationship" className="label">
                           relationship
                         </label>
                       </td>
@@ -368,7 +324,7 @@ const UserVisitors = () => {
                     <div>
                       <table>
                         <td>
-                          <label for="prison" className="label">
+                          <label id="prison" className="label">
                             Prisoner Name
                           </label>
                         </td>
@@ -379,24 +335,34 @@ const UserVisitors = () => {
                             className="reg_fields"
                             onChange={(e) => setprisoner(e.target.value)}
                           >
-                            <option value="">--Select prison--</option>
-                            {/**Select from Database */}
+                            <option>Select</option>
+                            {returnedData.map((Data) => (
+                              <option>{Data.Fullname}</option>
+                            ))}
                           </select>
                         </td>
                       </table>
 
                       <div className="control_input">
+                        {error && (
+                          <>
+                            <small style={{ color: "red" }}>{error}</small>
+                            <br />
+                          </>
+                        )}
+                        <br />
                         <input
                           type="submit"
-                          name="signup"
-                          id="Add"
-                          value="Add "
-                          title=""
-                          border="0"
+                          value={loading ? "Loading..." : "SUBMIT"}
+                          onSubmit={sendData}
+                          disabled={loading}
+                          className="btn btn-outline-primary"
                         />
                       </div>
 
-                      <div id="validation_msg">{setMessage}</div>
+                      <div id="validation_msg" style={{ color: "blue" }}>
+                        {message}
+                      </div>
                     </div>
                   </div>
                 </form>

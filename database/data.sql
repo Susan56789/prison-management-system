@@ -61,10 +61,12 @@ To_prison varchar(30) NOT NULL,
 Dateoftransfer varchar(30) NOT NULL
 )
 
-
 INSERT INTO officer VALUES (
 674484, '0712965134', 'LANGATA', 'SHIMOLATEWA', '2020-01-20'
 )
+
+SELECT * FROM officer
+
 
 
 CREATE TABLE officerdetails (
@@ -76,11 +78,14 @@ dateofbirth varchar(30) NOT NULL,
 gender varchar(30) NOT NULL,
 telephone varchar(30) NOT NULL,
 education varchar(50) NOT NULL,
-experience varchar(50) NOT NULL
+experience varchar(50) NOT NULL,
+password_ varchar (50) NOT NULL
 )
 
-INSERT INTO officerdetails VALUES (35689054,'Eric','Chesio','Rongai','1989-04-12','Male','0719443132','Diploma','3 years'),
-(32389054,'Mary','Wakio','Langata','1979-11-01','Male','0723443110','Certificate','5 years')
+SELECT * FROM officerdetails
+
+INSERT INTO officerdetails VALUES (35689054,'Eric','Chesio','Rongai','1989-04-12','Male','0719443132','Diploma','3 years','Eric1234'),
+(32389054,'Mary','Wakio','Langata','1979-11-01','Male','0723443110','Certificate','5 years','Mary1234')
 
 
 

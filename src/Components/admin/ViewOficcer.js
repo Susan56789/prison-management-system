@@ -56,16 +56,9 @@ const ViewOficcer = () => {
                 bgcolor="gr"
               >
                 <caption>
-                  <h3>PRISONER TRANSFER INFORMATION</h3>
+                  <h3>OFFICER TRANSFER INFORMATION</h3>
                 </caption>
                 <tr bgcolor="green">
-                  {/**
-   * <th width='3%'> id</th>
-<th width='10%'>Phone Number</th>
-<th width='15%'>From Prison</th>
-<th width='10%'>To Prison</th>
-<th width='10%'>Date of Transfer</th>
-   */}
                   <th>National ID</th>
                   <th>Phone Number</th>
                   <th>From Prison</th>

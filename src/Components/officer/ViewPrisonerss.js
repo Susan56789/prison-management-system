@@ -75,7 +75,7 @@ function ViewPrisonerss() {
               <tr bgcolor="grey">
                 <td>{Data.id}</td>
                 <td>{Data.Fullname}</td>
-                <td>{Data.DOB}</td>
+                <td>{new Date(Data.DOB).toLocaleDateString() + ""}</td>
                 <td>{Data.datein}</td>
                 <td>{Data.dateout}</td>
                 <td>{Data.Address_}</td>

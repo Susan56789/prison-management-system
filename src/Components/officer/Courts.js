@@ -57,56 +57,31 @@ const Courts = () => {
                   </td>
                 </tr>
 
-                <td bgcolor="#FFFFFF">
-                  <b>Date Of Trial:</b>
-                </td>
-                <td bgcolor="#FFFFFF">
-                  <input type="text" name="dot" />
-                </td>
                 <tr>
-                  <td>
-                    <label for="on">
-                      <b>Date Of Trial:</b>
-                    </label>
-                    <td>
-                      <select name="month" required>
-                        <option selected="selected" value="01">
-                          January
-                        </option>
-                        <option value="02">February</option>
-                        <option value="03">March</option>
-                        <option value="04">April</option>
-                        <option value="05">May</option>
-                        <option value="06">June</option>
-                        <option value="07">July</option>
-                        <option value="08">August</option>
-                        <option value="09">September</option>
-                        <option value="10">October</option>
-                        <option value="11">November</option>
-                        <option value="12">December</option>
-                      </select>
-                    </td>
-                    <td>
-                      <input
-                        type="text"
-                        name="day"
-                        size="4"
-                        maxlength="2"
-                        required
-                        placeholder="DD"
-                      />
-                    </td>
-
-                    <td>
-                      <select name="year" required>
-                        <option selected="selected" value="01">
-                          2014
-                        </option>
-                        <option value="02">2015</option>
-                      </select>
-                    </td>
+                  <td bgcolor="#FFFFFF">
+                    <b>Date Of Trial:</b>
+                  </td>
+                  <td bgcolor="#FFFFFF">
+                    <input type="date" name="dot" />
                   </td>
                 </tr>
+                <tr>
+                  <td>
+                    <b>Time</b>
+                  </td>
+                  <td>
+                    <input type="time" />
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>Prisoner Name</b>
+                  </td>
+                  <td>
+                    <input type="text" placeholder="Jane Doe" />
+                  </td>
+                </tr>
+
                 <tr>
                   <td bgcolor="#FFFFFF">
                     <b>Sentence:</b>
@@ -117,7 +92,7 @@ const Courts = () => {
                       <option>2 Weeks</option>
                       <option>1 to 3 Months</option>
                       <option>1year</option>
-                      <option>5 to 1o Years</option>
+                      <option>5 to 10 Years</option>
                       <option>15 Above</option>
                       <option>Life Sentence</option>
                     </select>

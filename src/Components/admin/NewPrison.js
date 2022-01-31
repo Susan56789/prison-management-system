@@ -69,9 +69,10 @@ const NewPrison = () => {
         </tr>
         <tr>
           <td align="center" bgcolor="green">
-            <a href="/" target="_parent">
-              Admin <b>|</b>
-            </a>
+            <a href="/Admin" target="_parent">
+              Admin Panel
+            </a>{" "}
+            <br />
             <a href="/" target="_parent">
               Log out
             </a>

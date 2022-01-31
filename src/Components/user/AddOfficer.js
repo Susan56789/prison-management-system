@@ -27,13 +27,13 @@ const AddOfficer = () => {
           </td>
         </tr>
         <tr>
-          <td width="25%" bgcolor="#FFFFFF">
+          <div width="25%" bgcolor="#FFFFFF">
             &nbsp;&nbsp;
             <td width="50%" align="center" bgcolor="white">
               <div id="content" className="ctrdiv">
                 <form id="frmReg" method="POST" action="validateofficer">
                   <h2 id="hdr_title">Officer Registration Form </h2>
-                  <div className="control_input">
+                  <td className="control_input">
                     <label for="id" className="label">
                       Natioanal Id
                     </label>
@@ -47,8 +47,8 @@ const AddOfficer = () => {
                       required
                       placeholder="12345678"
                     />
-                  </div>
-                  <div className="control_input">
+                  </td>
+                  <td className="control_input">
                     <label for="fullname" className="label">
                       Full Name
                     </label>
@@ -60,8 +60,8 @@ const AddOfficer = () => {
                       required
                       placeholder="John otieno"
                     />
-                  </div>
-                  <div className="control_input">
+                  </td>
+                  <td className="control_input">
                     <label for="address" className="label">
                       Address
                     </label>
@@ -73,7 +73,7 @@ const AddOfficer = () => {
                       required
                       placeholder="langata"
                     />
-                  </div>
+                  </td>
 
                   <div className="control_input">
                     <div>
@@ -84,41 +84,12 @@ const AddOfficer = () => {
                               Date of birth
                             </label>
                           </td>
-                          <td>
-                            <select
-                              id="lMonth"
-                              name="lMonth"
-                              className="reg_fields"
-                            >
-                              <option selected="selected" value="01">
-                                January
-                              </option>
-                              <option value="02">February</option>
-                              <option value="03">March</option>
-                              <option value="04">April</option>
-                              <option value="05">May</option>
-                              <option value="06">June</option>
-                              <option value="07">July</option>
-                              <option value="08">August</option>
-                              <option value="09">September</option>
-                              <option value="10">October</option>
-                              <option value="11">November</option>
-                              <option value="12">December</option>
-                            </select>
-                          </td>
+
                           <td>
                             <input
-                              type="text"
+                              type="date"
                               id="txtDay"
                               name="txtDay"
-                              value="DD"
-                              className="reg_fields"
-                            />
-                            <input
-                              type="text"
-                              id="txtYear"
-                              name="txtYear"
-                              value="YYYY"
                               className="reg_fields"
                             />
                           </td>
@@ -156,8 +127,8 @@ const AddOfficer = () => {
                         type="text"
                         id="telephone"
                         name="telephone"
-                        size="11"
-                        maxlength="11"
+                        size="13"
+                        maxlength="13"
                         className="reg_fields"
                         required
                         placeholder="074565558"
@@ -232,7 +203,7 @@ const AddOfficer = () => {
                 </form>
               </div>
             </td>
-          </td>
+          </div>
         </tr>
       </table>
     </>

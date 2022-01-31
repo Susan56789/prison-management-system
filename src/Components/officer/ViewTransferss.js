@@ -47,7 +47,7 @@ const ViewTransferss = () => {
             </caption>
             <tr bgcolor="green">
               <th width="3%">National id</th>
-              <th width="10%">File Number</th>
+              <th width="10%">Time</th>
               <th width="15%">From Prison</th>
               <th width="10%">To Prison</th>
               <th width="10%">Date of Transfer</th>
@@ -56,10 +56,14 @@ const ViewTransferss = () => {
             {returnedData.map((Data) => (
               <tr bgcolor="grey">
                 <td>{Data.National_id}</td>
-                <td>{Data.File_num}</td>
+                <td>
+                  {new Date(Data.TimeofTransfer).toLocaleTimeString() + ""}
+                </td>
                 <td>{Data.From_prison}</td>
                 <td>{Data.To_Prison}</td>
-                <td>{Data.Dateoftransfer}</td>
+                <td>
+                  {new Date(Data.Dateoftransfer).toLocaleDateString() + ""}
+                </td>
               </tr>
             ))}
           </table>
