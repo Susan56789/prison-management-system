@@ -21,7 +21,7 @@ function ViewPrisonerss() {
       .catch((err) => console.log(err));
     console.log(newData);
 
-    setReturnedData(newData[0]);
+    setReturnedData(newData);
   };
 
   fetchData();
@@ -71,22 +71,24 @@ function ViewPrisonerss() {
               <th>Prison</th>
             </tr>
 
-            <tr bgcolor="grey">
-              <td>{returnedData.id}</td>
-              <td>{returnedData.Fullname}</td>
-              <td>{returnedData.DOB}</td>
-              <td>{returnedData.datein}</td>
-              <td>{returnedData.dateout}</td>
-              <td>{returnedData.Address_}</td>
-              <td>{returnedData.County}</td>
-              <td>{returnedData.Gender}</td>
-              <td>{returnedData.Education}</td>
-              <td>{returnedData.MaritalStatus}</td>
-              <td>{returnedData.Offence}</td>
-              <td>{returnedData.Sentence}</td>
-              <td>{returnedData.File_num}</td>
-              <td>{returnedData.prison}</td>
-            </tr>
+            {returnedData.map((Data) => (
+              <tr bgcolor="grey">
+                <td>{Data.id}</td>
+                <td>{Data.Fullname}</td>
+                <td>{Data.DOB}</td>
+                <td>{Data.datein}</td>
+                <td>{Data.dateout}</td>
+                <td>{Data.Address_}</td>
+                <td>{Data.County}</td>
+                <td>{Data.Gender}</td>
+                <td>{Data.Education}</td>
+                <td>{Data.MaritalStatus}</td>
+                <td>{Data.Offence}</td>
+                <td>{Data.Sentence}</td>
+                <td>{Data.File_num}</td>
+                <td>{Data.prison}</td>
+              </tr>
+            ))}
           </table>
         </tr>
 

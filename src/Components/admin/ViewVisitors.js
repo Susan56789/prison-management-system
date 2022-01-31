@@ -14,7 +14,7 @@ const ViewVisitors = () => {
     }).then((res) => res.json());
     console.log(newData);
 
-    setReturnedData(newData[0]);
+    setReturnedData(newData);
   };
 
   fetchData();
@@ -57,17 +57,19 @@ const ViewVisitors = () => {
                 <th width="3%">Prisoner Name</th>
               </tr>
 
-              <tr bgcolor="grey">
-                <td width="3%">{returnedData.id}</td>
-                <td width="7%">{returnedData.fullname}</td>
-                <td width="10%">{returnedData.address_}</td>
-                <td width="10%">{returnedData.dateofvisit}</td>
-                <td width="10%">{returnedData.timein}</td>
-                <td width="10%">{returnedData.timeout}</td>
-                <td width="3%">{returnedData.relationship}</td>
-                <td width="10%">{returnedData.telephone}</td>
-                <td width="10%">{returnedData.prisoner}</td>
-              </tr>
+              {returnedData.map((Data) => (
+                <tr bgcolor="grey">
+                  <td width="3%">{Data.id}</td>
+                  <td width="7%">{Data.fullname}</td>
+                  <td width="10%">{Data.address_}</td>
+                  <td width="10%">{Data.dateofvisit}</td>
+                  <td width="10%">{Data.timein}</td>
+                  <td width="10%">{Data.timeout}</td>
+                  <td width="3%">{Data.relationship}</td>
+                  <td width="10%">{Data.telephone}</td>
+                  <td width="10%">{Data.prisoner}</td>
+                </tr>
+              ))}
             </table>
 
             <br />

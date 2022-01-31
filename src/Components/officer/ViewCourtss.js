@@ -14,7 +14,7 @@ const ViewCourtss = () => {
     }).then((res) => res.json());
     console.log(newData);
 
-    setReturnedData(newData[0]);
+    setReturnedData(newData);
   };
 
   fetchData();
@@ -50,18 +50,20 @@ const ViewCourtss = () => {
             <th width="15%">Sentence</th>
             <th width="10%">Location</th>
           </tr>
-          <tr bgcolor="grey">
-            <td width="3%">{returnedData.National_Id}</td>
-            <td width="7%">{returnedData.File_number}</td>
-            <td width="7%">{returnedData.Dateoftrail}</td>
-            <td width="7%">{returnedData.Sentence}</td>
-            <td width="7%">{returnedData.Location_}</td>
-            <td width="3%">
-              <b>
-                <a href="#delete '">Delete</a>
-              </b>
-            </td>
-          </tr>
+          {returnedData.map((Data) => (
+            <tr bgcolor="grey">
+              <td width="3%">{Data.National_Id}</td>
+              <td width="7%">{Data.File_number}</td>
+              <td width="7%">{Data.Dateoftrail}</td>
+              <td width="7%">{Data.Sentence}</td>
+              <td width="7%">{Data.Location_}</td>
+              <td width="3%">
+                <b>
+                  <a href="#delete '">Delete</a>
+                </b>
+              </td>
+            </tr>
+          ))}
         </table>
 
         <br />

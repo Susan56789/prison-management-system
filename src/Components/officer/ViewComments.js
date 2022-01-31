@@ -22,7 +22,7 @@ function ViewComments() {
       .catch((err) => console.log(err));
     console.log(newData);
 
-    setReturnedData(newData[0]);
+    setReturnedData(newData);
   };
 
   useEffect(() => {
@@ -59,12 +59,14 @@ function ViewComments() {
               <th width="15%">Subject</th>
               <th width="10%">Message</th>
             </tr>
-            <tr bgcolor="grey">
-              <td width="10%">{returnedData.Id}</td>
-              <td width="3%">{returnedData._to}</td>
-              <td width="15%">{returnedData._subject}</td>
-              <td width="10%">{returnedData._message}</td>
-            </tr>
+            {returnedData.map((Data) => (
+              <tr bgcolor="grey">
+                <td width="10%">{Data.Id}</td>
+                <td width="3%">{Data._to}</td>
+                <td width="15%">{Data._subject}</td>
+                <td width="10%">{Data._message}</td>
+              </tr>
+            ))}
           </table>
         </tr>
         <tr>

@@ -14,7 +14,7 @@ const NewPrison = () => {
     }).then((res) => res.json());
     console.log(newData);
 
-    setReturnedData(newData[0]);
+    setReturnedData(newData);
   };
 
   fetchData();
@@ -52,14 +52,16 @@ const NewPrison = () => {
                 <th width="10%">Capacity</th>
               </tr>
 
-              <tr bgcolor="grey">
-                <td width="3%">{returnedData.pno}</td>
-                <td width="7%">{returnedData.pname}</td>
-                <td width="10%">{returnedData.location_}</td>
-                <td width="10%">{returnedData.opendate}</td>
-                <td width="10%">{returnedData.contact}</td>
-                <td width="3%">{returnedData.capacity}</td>
-              </tr>
+              {returnedData.map((Data) => (
+                <tr bgcolor="grey">
+                  <td width="3%">{Data.pno}</td>
+                  <td width="7%">{Data.pname}</td>
+                  <td width="10%">{Data.location_}</td>
+                  <td width="10%">{Data.opendate}</td>
+                  <td width="10%">{Data.contact}</td>
+                  <td width="3%">{Data.capacity}</td>
+                </tr>
+              ))}
             </table>
 
             <br />

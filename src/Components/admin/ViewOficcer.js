@@ -23,7 +23,7 @@ const ViewOficcer = () => {
       .catch((err) => console.log(err));
     console.log(newData);
 
-    setReturnedData(newData[0]);
+    setReturnedData(newData);
   };
 
   fetchData();
@@ -72,13 +72,15 @@ const ViewOficcer = () => {
                   <th>To Prison</th>
                   <th>Date of Transfer</th>
                 </tr>
-                <tr bgcolor="green">
-                  <td>{returnedData.National_id}</td>
-                  <td>{returnedData.Telephone}</td>
-                  <td>{returnedData.From_prison}</td>
-                  <td> {returnedData.To_prison}</td>
-                  <td>{returnedData.Dateoftransfer}</td>
-                </tr>
+                {returnedData.map((Data) => (
+                  <tr bgcolor="green">
+                    <td>{Data.National_id}</td>
+                    <td>{Data.Telephone}</td>
+                    <td>{Data.From_prison}</td>
+                    <td> {Data.To_prison}</td>
+                    <td>{Data.Dateoftransfer}</td>
+                  </tr>
+                ))}
               </table>
 
               <br />

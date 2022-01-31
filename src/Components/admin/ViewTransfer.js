@@ -14,7 +14,7 @@ const ViewTransfer = () => {
     }).then((res) => res.json());
     console.log(newData);
 
-    setReturnedData(newData[2]);
+    setReturnedData(newData);
   };
 
   fetchData();
@@ -53,20 +53,22 @@ const ViewTransfer = () => {
               <th width="10%">Date of Transfer</th>
             </tr>
 
-            <tr bgcolor="grey">
-              <td>{returnedData.National_id}</td>
-              <td>{returnedData.File_num}</td>
-              <td>{returnedData.From_prison}</td>
-              <td>{returnedData.To_Prison}</td>
-              <td>{returnedData.Dateoftransfer}</td>
-              <td>
-                <b>
-                  <a href="deletetransfer.php?id=' . $row['National_id'] . '">
-                    Delete
-                  </a>
-                </b>
-              </td>
-            </tr>
+            {returnedData.map((Data) => (
+              <tr bgcolor="grey">
+                <td>{Data.National_id}</td>
+                <td>{Data.File_num}</td>
+                <td>{Data.From_prison}</td>
+                <td>{Data.To_Prison}</td>
+                <td>{Data.Dateoftransfer}</td>
+                <td>
+                  <b>
+                    <a href="deletetransfer.php?id=' . $row['National_id'] . '">
+                      Delete
+                    </a>
+                  </b>
+                </td>
+              </tr>
+            ))}
           </table>
 
           <br />

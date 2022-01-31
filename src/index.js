@@ -1,13 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import MediaQuery from "react-responsive";
 
 ReactDOM.render(
-  <React.StrictMode>
+  <MediaQuery minWidth={350}>
     <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  </MediaQuery>,
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function

@@ -20,7 +20,7 @@ const ViewOfficerss = () => {
       })
       .catch((err) => console.log(err));
     // console.log(newData);
-    setReturnedData(newData[0]);
+    setReturnedData(newData);
   };
 
   useEffect(() => {
@@ -68,17 +68,19 @@ const ViewOfficerss = () => {
             <th width="10%">Experiance</th>
           </tr>
 
-          <tr bgcolor="grey">
-            <td width="3%">{returnedData.id}</td>
-            <td width="7%">{returnedData.firstname}</td>
-            <td width="10%">{returnedData.lastname}</td>
-            <td width="10%">{returnedData.address_}</td>
-            <td width="10%">{returnedData.dateofbirth}</td>
-            <td width="10%">{returnedData.gender}</td>
-            <td width="3%">{returnedData.telephone}</td>
-            <td width="10%">{returnedData.education}</td>
-            <td width="10%">{returnedData.experience}</td>
-          </tr>
+          {returnedData.map((Data) => (
+            <tr bgcolor="grey">
+              <td width="3%">{Data.id}</td>
+              <td width="7%">{Data.firstname}</td>
+              <td width="10%">{Data.lastname}</td>
+              <td width="10%">{Data.address_}</td>
+              <td width="10%">{Data.dateofbirth}</td>
+              <td width="10%">{Data.gender}</td>
+              <td width="3%">{Data.telephone}</td>
+              <td width="10%">{Data.education}</td>
+              <td width="10%">{Data.experience}</td>
+            </tr>
+          ))}
         </table>
 
         <br />
