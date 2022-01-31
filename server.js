@@ -3,14 +3,36 @@ const bodyParser = require("body-parser");
 const pino = require("express-pino-logger")();
 const dbOperation = require("./database/dbOperation");
 
+const cors = require("cors");
+
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(pino);
 app.use(express.json());
 app.use(express.urlencoded());
+app.use(bodyParser.json());
+
+var corsOptions = {
+  origin: "*",
+  credentials: "include",
+  "Content-Type": "application/json",
+  Accept: "application/json",
+  "Access-Control-Allow-Origin": "*",
+};
+
+// enable CORS
+app.use(cors(corsOptions));
 
 app.get("/", async (req, res) => {
   res.send("Welcome to Prison System server");
+});
+
+//get prisons names
+app.get("/prisons", async (req, res) => {
+  console.log("List of prisons");
+  res.setHeader("Content-Type", "application/json");
+  let result = await dbOperation.getNewP(req.headers);
+  res.send(result.recordset);
 });
 
 //fetch officer data
@@ -61,6 +83,15 @@ app.get("/vis", async (req, res) => {
   res.send(result.recordset);
 });
 
+//Register visitors
+app.post("/regVisitor", async (req, res) => {
+  // const { firstName, lastName } = req.body;
+  console.log("Visitor Registration");
+  await dbOperation.createVisitor(req.body);
+  const result = await dbOperation.getVisitor(req.body);
+  res.send(result.recordset);
+});
+
 //Officer details
 app.get("/det", async (req, res) => {
   console.log("details");
@@ -78,11 +109,33 @@ app.get("/np", async (req, res) => {
 });
 
 //Login
-app.post("/userlogin", async (req, res) => {
-  let data = { ...req.body };
 
-  dbOperation.createVisitor(data).then((result) => {
-    res.status(200).json(result);
+app.post("/userlogin", async (req, res) => {
+  const id = req.body.id;
+  const pwd = req.body.password;
+  const Data = await dbOperation.getAdmin(req.header);
+
+  const result = Data.recordset;
+  console.log(result);
+
+  result.map((userData) => {
+    // return 400 status if username/password is not exist
+    if (!id || !pwd) {
+      return res.status(400).json({
+        error: true,
+        message: "Username or Password is required.",
+      });
+    }
+
+    // return 401 status if the credential is not match.
+    if (id !== userData.Admin_Id || pwd !== userData.Admin_Password) {
+      return res.status(401).json({
+        error: true,
+        message: "Username or Password is wrong.",
+      });
+    }
+
+    return res.json({ user: userData });
   });
 });
 app.post("/officerlogin", async (req, res) => {
