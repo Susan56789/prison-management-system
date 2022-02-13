@@ -65,9 +65,7 @@ const ViewCourt = () => {
               </td>
               <td width="3%">
                 <b>
-                  <a href="deletecourt.php?id=' . $row['National_id'] . '">
-                    Delete
-                  </a>
+                  <a href="#delete">Delete</a>
                 </b>
               </td>
             </tr>

@@ -66,9 +66,7 @@ const ViewTransfer = () => {
                 </td>
                 <td>
                   <b>
-                    <a href="deletetransfer.php?id=' . $row['National_id'] . '">
-                      Delete
-                    </a>
+                    <a href="#delete">Delete</a>
                   </b>
                 </td>
               </tr>

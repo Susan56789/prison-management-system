@@ -26,6 +26,8 @@ number int NOT NULL
 
 INSERT INTO capacity VALUES(1, 500),(2, 750),(3, 1000),(4, 1500)
 
+
+
 SELECT * FROM capacity
 
 CREATE TABLE court (
@@ -36,7 +38,12 @@ Sentence varchar(50) NOT NULL,
 Location_ varchar(20) NOT NULL
 )
 
-INSERT INTO court VALUES (23467821,'AS32','2020-11-14','2 years','Kamiti')
+
+INSERT INTO court VALUES (13467321,'AS32','2021-11-14','3 years','Kamiti'),(213145821,'AS31','2020-10-14','2 years','Kamiti'),
+(23463821,'AS22','2022-03-14','6 years','Kamiti'), (134267821,'AS21','2020-10-14','2 years','Kamiti'), (2139167821,'AS322','2022-11-14','2 years','Kamiti'),
+(1231462121,'AS99','2021-11-14','10 years','Kamiti')
+
+SELECT * FROM court
 
 CREATE TABLE newprison(
 pno int NOT NULL PRIMARY KEY,
@@ -171,8 +178,9 @@ telephone varchar(30) NOT NULL,
 prisoner varchar(30) NOT NULL
 )
 
-
-INSERT INTO visitor VALUES (89999089, 'Emmillie', 'Rongai', '2021-02-12', '12:00am', '5:00pm', 'other', 2147483647, 'Qin Yun')
+INSERT INTO visitor VALUES (89999089, 'Emmillie Kuria', 'Langata', '2021-02-12', '12:00am', '5:00pm', 'Husband', 0789657896, 'John Kuria'),
+(38438094, 'Mike Mwanza', 'Rongai', '2022-01-12', '11:00am', '01:00pm', 'Brother', 0794765145, 'James Oloo'), 
+(86759089, 'Mary John', 'Embu', '2021-02-13', '12:00am', '5:00pm', 'Other', 0794367880, 'Allan Mwangi')
 
 SELECT * FROM visitor
 

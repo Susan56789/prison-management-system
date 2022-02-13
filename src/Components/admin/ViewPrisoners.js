@@ -88,9 +88,7 @@ const ViewPrisoners = () => {
                 <td>{Data.prison}</td>
                 <td>
                   <b>
-                    <a href="deleteprisoners.php?id=' . $row['id'] . '">
-                      Delete
-                    </a>
+                    <a href="#delete">Delete</a>
                   </b>
                 </td>
               </tr>
