@@ -1,8 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import banner from "../banner.gif";
 import capture from "../Capturee.gif";
+import { withRouter } from "react-router";
 
-function LoginOfficer() {
+const LoginOfficer = (props) => {
+  const [id, setId] = useState();
+  const [password, setPassword] = useState();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await fetch("/officerLogin", {
+      method: "POST",
+      body: {
+        id: id,
+        password: password,
+      },
+    }).then((res) => {
+      JSON.stringify(res);
+
+      props.history.push("/Officer");
+    });
+  };
+
   return (
     <div>
       <table
@@ -32,7 +51,7 @@ function LoginOfficer() {
             <img src={capture} width="200" height="179" alt="" />
           </td>
           <td width="50%" align="center" bgcolor="#FFFFFF">
-            <form>
+            <form onSubmit={handleSubmit}>
               <h2>
                 <b>OFFICER/POLICE LOGIN</b>
               </h2>
@@ -42,7 +61,11 @@ function LoginOfficer() {
                   <b>National ID</b>
                 </td>
                 <td height="36" bgcolor="#FFFFFF">
-                  <input type="text" name="username" />
+                  <input
+                    type="text"
+                    name="username"
+                    onChange={(e) => setId(e.target.value)}
+                  />
                 </td>
               </tr>
 
@@ -51,7 +74,11 @@ function LoginOfficer() {
                   <b>Password:</b>
                 </td>
                 <td height="36" bgcolor="#FFFFFF">
-                  <input type="password" name="password" />
+                  <input
+                    type="password"
+                    name="password"
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
                 </td>
               </tr>
 
@@ -66,6 +93,6 @@ function LoginOfficer() {
       </table>
     </div>
   );
-}
+};
 
-export default LoginOfficer;
+export default withRouter(LoginOfficer);

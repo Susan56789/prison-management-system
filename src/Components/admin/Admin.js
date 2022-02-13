@@ -32,9 +32,9 @@ const Admin = () => {
           <td colspan="7" bgcolor="#yellow" height="1" align="center">
             <nav>
               <ul>
-                <li>
+                {/**<li>
                   <a href="/">Home</a>{" "}
-                </li>
+                </li> */}
                 <li>
                   <a href="./SearchForm">Search </a>
                 </li>

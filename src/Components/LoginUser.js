@@ -1,9 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
 import banner from "../banner.gif";
 import capture from "../Capturee.gif";
 import "../login.css";
+import { withRouter } from "react-router";
 
-function LoginUser() {
+const LoginUser = (props) => {
+  const [id, setId] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState(null);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError(null);
+
+    await fetch("/userLogin", {
+      method: "POST",
+      body: {
+        id: id,
+        password: password,
+      },
+    })
+      .then((res) => {
+        JSON.stringify(res);
+
+        props.history.push("/User");
+      })
+      .catch((error) => {
+        if (error.response.status === 400 || error.response.status === 401) {
+          setError(error.response.data.message);
+        } else {
+          setError("Something is wrong. Please try again later !");
+        }
+        console.error("Error >>>", error);
+      });
+  };
   return (
     <div>
       <table
@@ -33,7 +63,7 @@ function LoginUser() {
             <img src={capture} width="200" height="179" alt="" />
           </td>
           <td width="50%" align="center" bgcolor="#FFFFFF">
-            <form>
+            <form onSubmit={handleSubmit}>
               <h2>
                 <b>USER LOGIN</b>
               </h2>
@@ -43,7 +73,11 @@ function LoginUser() {
                   <b>National ID</b>
                 </td>
                 <td height="36" bgcolor="#FFFFFF">
-                  <input type="text" name="username" />
+                  <input
+                    type="text"
+                    name="id"
+                    onChange={(e) => setId(e.target.value)}
+                  />
                 </td>
               </tr>
 
@@ -52,11 +86,23 @@ function LoginUser() {
                   <b>Password:</b>
                 </td>
                 <td height="36" bgcolor="#FFFFFF">
-                  <input type="password" name="password" />
+                  <input
+                    type="password"
+                    name="password"
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
                 </td>
               </tr>
 
               <tr>
+                <td>
+                  {error && (
+                    <>
+                      <small style={{ color: "red" }}>{error}</small>
+                      <br />
+                    </>
+                  )}
+                </td>
                 <td bgcolor="#fff" height="36" align="center">
                   <button type="submit">LOGIN</button>
                 </td>
@@ -67,6 +113,6 @@ function LoginUser() {
       </table>
     </div>
   );
-}
+};
 
-export default LoginUser;
+export default withRouter(LoginUser);

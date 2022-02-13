@@ -1,8 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import banner from "../banner.gif";
 import capture from "../Capturee.gif";
+import { withRouter } from "react-router";
 
-function LoginAdmin() {
+const LoginAdmin = (props) => {
+  const [id, setId] = useState();
+  const [password, setPassword] = useState();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await fetch("/adminLogin", {
+      method: "POST",
+      body: {
+        id: id,
+        password: password,
+      },
+    }).then((res) => {
+      JSON.stringify(res);
+
+      props.history.push("/Admin");
+    });
+  };
+
   return (
     <div>
       <table
@@ -32,7 +51,7 @@ function LoginAdmin() {
             <img src={capture} width="200" height="179" alt="" />
           </td>
           <td width="50%" align="center" bgcolor="#FFFFFF">
-            <form>
+            <form onSubmit={handleSubmit}>
               <h2>
                 <b>ADMIN LOGIN </b>
               </h2>
@@ -42,7 +61,11 @@ function LoginAdmin() {
                   <b>National ID</b>
                 </td>
                 <td height="36" bgcolor="#FFFFFF">
-                  <input type="text" name="username" />
+                  <input
+                    type="text"
+                    name="username"
+                    onChange={(e) => setId(e.target.value)}
+                  />
                 </td>
               </tr>
 
@@ -51,7 +74,11 @@ function LoginAdmin() {
                   <b>Password:</b>
                 </td>
                 <td height="36" bgcolor="#FFFFFF">
-                  <input type="password" name="password" />
+                  <input
+                    type="password"
+                    name="password"
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
                 </td>
               </tr>
               <tr>
@@ -65,6 +92,6 @@ function LoginAdmin() {
       </table>
     </div>
   );
-}
+};
 
-export default LoginAdmin;
+export default withRouter(LoginAdmin);

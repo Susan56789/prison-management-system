@@ -14,7 +14,6 @@ app.use(bodyParser.json());
 
 var corsOptions = {
   origin: "*",
-  credentials: "include",
   "Content-Type": "application/json",
   Accept: "application/json",
   "Access-Control-Allow-Origin": "*",
@@ -108,12 +107,12 @@ app.get("/np", async (req, res) => {
   res.send(result.recordset);
 });
 
-//Login
+//Logins
 
-app.post("/userlogin", async (req, res) => {
+app.post("/adminLogin", async (req, res) => {
   const id = req.body.id;
   const pwd = req.body.password;
-  const Data = await dbOperation.getAdmin(req.header);
+  const Data = await dbOperation.getAdmin();
 
   const result = Data.recordset;
   console.log(result);
@@ -138,15 +137,59 @@ app.post("/userlogin", async (req, res) => {
     return res.json({ user: userData });
   });
 });
-app.post("/officerlogin", async (req, res) => {
-  res.setHeader("Content-Type", "application/json");
-  let result = await dbOperation.createOfficer;
-  res.send(result.recordset);
+app.post("/userLogin", async (req, res) => {
+  const id = req.body.id;
+  const pwd = req.body.password;
+  const Data = await dbOperation.getOfficer();
+
+  const result = Data.recordset;
+  console.log(result);
+
+  result.map((userData) => {
+    // return 400 status if username/password is not exist
+    if (!id || !pwd) {
+      return res.status(400).json({
+        error: true,
+        message: "Username or Password is required.",
+      });
+    }
+    // return 401 status if the credential is not match.
+    if (id !== userData.id || pwd !== userData.password_) {
+      return res.status(401).json({
+        error: true,
+        message: "Username or Password is wrong.",
+      });
+    }
+
+    return res.json({ user: userData });
+  });
 });
-app.post("/adminlogin", async (req, res) => {
-  res.setHeader("Content-Type", "application/json");
-  let result = await dbOperation.createAdmin(req.headers);
-  res.send(result.recordset);
+
+app.post("/officerLogin", async (req, res) => {
+  const id = req.body.id;
+  const pwd = req.body.password;
+  const Data = await dbOperation.getOfficer();
+
+  const result = Data.recordset;
+  console.log(result);
+  result.map((userData) => {
+    // return 400 status if username/password is not exist
+    if (!id || !pwd) {
+      return res.status(400).json({
+        error: true,
+        message: "Username or Password is required.",
+      });
+    }
+    // return 401 status if the credential is not match.
+    if (id !== userData.id || pwd !== userData.password_) {
+      return res.status(401).json({
+        error: true,
+        message: "Username or Password is wrong.",
+      });
+    }
+
+    return res.json({ user: userData });
+  });
 });
 
 // eslint-disable-next-line no-lone-blocks

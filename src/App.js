@@ -149,28 +149,28 @@ const App = () => {
           <Route path="/OfficerTransfer">
             <OfficerTransfer />
           </Route>
-          <Route path="/SearchForm">
+          <Route exact path="/SearchForm">
             <SearchForm />
           </Route>
-          <Route path="/Registrations">
+          <Route exact path="/Registrations">
             <Registrations />
           </Route>
-          <Route path="/Court">
+          <Route exact path="/Court">
             <Court />
           </Route>
-          <Route path="/userLogin">
+          <Route exact path="/userLogin">
             <LoginUser />
           </Route>
-          <Route path="/officerLogin">
+          <Route exact path="/officerLogin">
             <LoginOfficer />
           </Route>
-          <Route path="/adminLogin">
+          <Route exact path="/adminLogin">
             <LoginAdmin />
           </Route>
-          <Route path="/newPrisons">
+          <Route exact path="/newPrisons">
             <NewPrisons />
           </Route>
-          <Route path="/officerSearch">
+          <Route exact path="/officerSearch">
             <SearchForms />
           </Route>
           <Route path="/transferForm">
