@@ -5,9 +5,10 @@
 
 /* === Form Typography === */
 body {
-  font: 14px/21px "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode",
-    sans-serif;
-  background: azure;
+  font-family: "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", sans-serif;
+  font-size: 12px;
+  width: 100%;
+  height: 100%;
 }
 .contact_form h2,
 .contact_form label {
