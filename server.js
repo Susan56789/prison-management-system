@@ -16,6 +16,7 @@ var corsOptions = {
   origin: "*",
   Accept: "application/json",
   "Access-Control-Allow-Origin": "*",
+  "Content-Type": "application/json",
 };
 
 const PORT = process.env.PORT || 3001;
@@ -212,11 +213,19 @@ app.post("/newOfficers", async (req, res) => {
     password_: req.body.password,
   };
 
+  console.log("New officers >>>", req.body);
+
   try {
-    let officer = await conn
-      .request()
-      .query(`INSERT INTO officerdetails VALUES (${data})`);
+    let officer = await conn.request().query(
+      `INSERT INTO officerdetails VALUES (${req.body.id},'${req.body.firstname}','${req.body.lastname}', 
+      '${req.body.address_}','${req.body.dateofbirth}','${req.body.gender}',${req.body.telephone},'${req.body.education}',
+      '${req.body.experience}', '${req.body.password_}') 
+
+        `
+    );
     console.log("New Officers >>> ", officer);
+
+    //res.send(data);
     return officer;
   } catch (error) {
     console.log(error);

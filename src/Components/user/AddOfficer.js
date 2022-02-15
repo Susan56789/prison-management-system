@@ -3,55 +3,63 @@ import "./login.css";
 import banner from "./banner.gif";
 
 const AddOfficer = () => {
-  const [id, setId] = useState(0);
-  const [firstname, setfirstName] = useState("");
-  const [lastname, setlastName] = useState("");
-  const [address, setAddress] = useState("");
+  const [id, setId] = useState();
+  const [firstname, setfirstName] = useState();
+  const [lastname, setlastName] = useState();
+  const [address, setAddress] = useState();
   const [dob, setDob] = useState(0);
-  const [gender, setGender] = useState("");
+  const [gender, setGender] = useState();
   const [tel, setTel] = useState(0);
-  const [education, setEducation] = useState("");
-  const [experience, setExperience] = useState("");
+  const [education, setEducation] = useState();
+  const [experience, setExperience] = useState();
   const [password, setPassword] = useState();
+  const [message, setMessage] = useState(null);
 
   const data = {
-    id,
-    firstname,
-    lastname,
-    address,
-    dob,
-    gender,
-    tel,
-    education,
-    experience,
-    password,
+    id: id,
+    firstname: firstname,
+    lastname: lastname,
+    address_: address,
+    dateofbirth: dob,
+    gender: gender,
+    telephone: tel,
+    education: education,
+    experience: experience,
+    password_: password,
   };
 
   const clearInputs = () => {
-    setId("");
-    setAddress("");
-    setDob("");
-    setEducation("");
-    setExperience("");
-    setGender("");
-    setPassword("");
-    setfirstName("");
-    setlastName("");
-    setTel("");
+    let res = {
+      id: "",
+      firstname: "",
+      lastname: "",
+      address_: "",
+      dateofbirth: "",
+      gender: "",
+      telephone: "",
+      education: "",
+      experience: "",
+      password_: "",
+    };
+    return res;
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
     fetch("http://localhost:3001/newOfficers", {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
       // We convert the React state to JSON and send it as the POST body
-      body: data,
-    }).then(function (response) {
+      body: JSON.stringify(data),
+    }).then((response) => {
       console.log(response);
-      return response.json();
+      return response;
     });
 
+    e.preventDefault();
     clearInputs();
+    setMessage("Registration Successful");
   };
 
   return (
@@ -61,17 +69,17 @@ const AddOfficer = () => {
         border="0"
         bgcolor="white"
         width="400"
-        cellpadding="9"
-        cellspacing="0"
+        cellPadding="9"
+        cellSpacing="0"
         height="525"
       >
         <tr>
-          <td colspan="2" height="2">
+          <td colSpan="2" height="2">
             <img src={banner} width="860" alt="" />
           </td>
         </tr>
         <tr>
-          <td colspan="3" bgcolor="#FF0000" height="1" align="center">
+          <td colSpan="3" bgcolor="#FF0000" height="1" align="center">
             <font size="4">
               <a href="./User">HOME</a> |
             </font>
@@ -90,12 +98,9 @@ const AddOfficer = () => {
                     </label>
                     <input
                       type="text"
-                      id="id"
-                      name="id"
-                      size="14"
-                      maxlength="8"
                       className="reg_fields"
                       placeholder="12345678"
+                      name="id"
                       onChange={(e) => setId(e.target.value)}
                     />
                   </td>
@@ -105,10 +110,9 @@ const AddOfficer = () => {
                     </label>
                     <input
                       type="text"
-                      id="fullname"
-                      name="fullname"
                       className="reg_fields"
                       placeholder="John"
+                      name="firstname"
                       onChange={(e) => setfirstName(e.target.value)}
                     />
                   </td>
@@ -118,10 +122,9 @@ const AddOfficer = () => {
                     </label>
                     <input
                       type="text"
-                      id="fullname"
-                      name="fullname"
                       className="reg_fields"
                       placeholder="Doe"
+                      name="lastname"
                       onChange={(e) => setlastName(e.target.value)}
                     />
                   </td>
@@ -131,10 +134,9 @@ const AddOfficer = () => {
                     </label>
                     <input
                       type="text"
-                      id="address"
-                      name="address"
                       className="reg_fields"
                       placeholder="langata"
+                      name="address"
                       onChange={(e) => setAddress(e.target.value)}
                     />
                   </td>
@@ -151,9 +153,8 @@ const AddOfficer = () => {
                           <td>
                             <input
                               type="date"
-                              id="txtDay"
-                              name="txtDay"
                               className="reg_fields"
+                              name="dateofbirth"
                               onChange={(e) => setDob(e.target.value)}
                             />
                           </td>
@@ -172,9 +173,8 @@ const AddOfficer = () => {
                         </td>
                         <td>
                           <select
-                            id="gender"
-                            name="gender"
                             className="reg_fields"
+                            name="gender"
                             onChange={(e) => setGender(e.target.value)}
                           >
                             <option>Male</option>
@@ -190,12 +190,9 @@ const AddOfficer = () => {
                       </label>
                       <input
                         type="text"
-                        id="telephone"
-                        name="telephone"
-                        size="13"
-                        maxlength="13"
                         className="reg_fields"
                         placeholder="074565558"
+                        name="telephone"
                         onChange={(e) => setTel(e.target.value)}
                       />
                     </div>
@@ -210,12 +207,11 @@ const AddOfficer = () => {
                           </td>
                           <td>
                             <select
-                              id="education"
-                              name="education"
                               className="reg_fields"
+                              name="education"
                               onChange={(e) => setEducation(e.target.value)}
                             >
-                              <option>O level</option>
+                              <option>Highschool/Secondary</option>
                               <option>Certificate</option>
                               <option>Diploma</option>
                               <option>Bsc/B.A</option>
@@ -237,8 +233,7 @@ const AddOfficer = () => {
                             </td>
                             <td>
                               <select
-                                id="exp"
-                                name="exp"
+                                name="experience"
                                 className="reg_fields"
                                 onChange={(e) => setExperience(e.target.value)}
                               >
@@ -253,6 +248,7 @@ const AddOfficer = () => {
                               <label>Password</label>
                               <input
                                 type="password"
+                                name="password"
                                 onChange={(e) => setPassword(e.target.value)}
                               />
                             </td>
@@ -260,17 +256,10 @@ const AddOfficer = () => {
                         </div>
 
                         <div className="control_input">
-                          <input
-                            type="submit"
-                            name="signup"
-                            id="signup"
-                            value="Submit"
-                            title=""
-                            border="0"
-                          />
+                          <input type="submit" value="Submit" />
                         </div>
 
-                        <div id="validation_msg"></div>
+                        <div id="validation_msg">{message}</div>
                       </div>
                     </div>
                   </div>
