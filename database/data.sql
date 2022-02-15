@@ -76,7 +76,6 @@ INSERT INTO officer VALUES (
 SELECT * FROM officer
 
 
-
 CREATE TABLE officerdetails (
 id int NOT NULL PRIMARY KEY,
 firstname varchar (30) NOT NULL,

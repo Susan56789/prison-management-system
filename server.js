@@ -194,21 +194,34 @@ app.post("/officerLogin", async (req, res) => {
   });
 });
 
-// eslint-disable-next-line no-lone-blocks
-{
-  /**
-let Mwaki = new Officers(64343965, '0794323444','NAKURU','KIGANJO','2021-01-12')
+app.post("/newOfficers", async (req, res) => {
+  const sql = require("mssql");
+  const config = require("./database/dbConfig");
+  let conn = await sql.connect(config);
 
-dbOperation.getOfficer().then(res =>{
-    console.log(res.recordset);
-})
+  let data = {
+    id: req.body.id,
+    firstname: req.body.fistname,
+    lastname: req.body.lastname,
+    address_: req.body.address,
+    dateofbirth: req.body.dob,
+    gender: req.body.gender,
+    telephone: req.body.tel,
+    education: req.body.education,
+    experience: req.body.experience,
+    password_: req.body.password,
+  };
 
-dbOperation.createOfficer(Mwaki);
-
-console.log(Mwaki);
-
-*/
-}
+  try {
+    let officer = await conn
+      .request()
+      .query(`INSERT INTO officerdetails VALUES (${data})`);
+    console.log("New Officers >>> ", officer);
+    return officer;
+  } catch (error) {
+    console.log(error);
+  }
+});
 
 app.listen(PORT, () =>
   console.log(`Express server is running on localhost:${PORT}`)

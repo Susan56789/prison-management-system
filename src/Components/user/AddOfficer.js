@@ -1,8 +1,59 @@
-import React from "react";
+import React, { useState } from "react";
 import "./login.css";
 import banner from "./banner.gif";
 
 const AddOfficer = () => {
+  const [id, setId] = useState(0);
+  const [firstname, setfirstName] = useState("");
+  const [lastname, setlastName] = useState("");
+  const [address, setAddress] = useState("");
+  const [dob, setDob] = useState(0);
+  const [gender, setGender] = useState("");
+  const [tel, setTel] = useState(0);
+  const [education, setEducation] = useState("");
+  const [experience, setExperience] = useState("");
+  const [password, setPassword] = useState();
+
+  const data = {
+    id,
+    firstname,
+    lastname,
+    address,
+    dob,
+    gender,
+    tel,
+    education,
+    experience,
+    password,
+  };
+
+  const clearInputs = () => {
+    setId("");
+    setAddress("");
+    setDob("");
+    setEducation("");
+    setExperience("");
+    setGender("");
+    setPassword("");
+    setfirstName("");
+    setlastName("");
+    setTel("");
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    fetch("http://localhost:3001/newOfficers", {
+      method: "POST",
+      // We convert the React state to JSON and send it as the POST body
+      body: data,
+    }).then(function (response) {
+      console.log(response);
+      return response.json();
+    });
+
+    clearInputs();
+  };
+
   return (
     <>
       <table
@@ -31,10 +82,10 @@ const AddOfficer = () => {
             &nbsp;&nbsp;
             <td width="50%" align="center" bgcolor="white">
               <div id="content" className="ctrdiv">
-                <form id="frmReg" method="POST" action="validateofficer">
+                <form id="frmReg" onSubmit={handleSubmit}>
                   <h2 id="hdr_title">Officer Registration Form </h2>
                   <td className="control_input">
-                    <label for="id" className="label">
+                    <label id="id" className="label">
                       Natioanal Id
                     </label>
                     <input
@@ -44,25 +95,38 @@ const AddOfficer = () => {
                       size="14"
                       maxlength="8"
                       className="reg_fields"
-                      required
                       placeholder="12345678"
+                      onChange={(e) => setId(e.target.value)}
                     />
                   </td>
                   <td className="control_input">
-                    <label for="fullname" className="label">
-                      Full Name
+                    <label id="fname" className="label">
+                      First Name
                     </label>
                     <input
                       type="text"
                       id="fullname"
                       name="fullname"
                       className="reg_fields"
-                      required
-                      placeholder="John otieno"
+                      placeholder="John"
+                      onChange={(e) => setfirstName(e.target.value)}
+                    />
+                  </td>
+                  <td>
+                    <label id="lname" className="label">
+                      Last Name
+                    </label>
+                    <input
+                      type="text"
+                      id="fullname"
+                      name="fullname"
+                      className="reg_fields"
+                      placeholder="Doe"
+                      onChange={(e) => setlastName(e.target.value)}
                     />
                   </td>
                   <td className="control_input">
-                    <label for="address" className="label">
+                    <label id="address" className="label">
                       Address
                     </label>
                     <input
@@ -70,17 +134,16 @@ const AddOfficer = () => {
                       id="address"
                       name="address"
                       className="reg_fields"
-                      required
                       placeholder="langata"
+                      onChange={(e) => setAddress(e.target.value)}
                     />
                   </td>
-
                   <div className="control_input">
                     <div>
                       <table>
                         <tr>
                           <td>
-                            <label for="dateofbirth" className="label">
+                            <label id="dateofbirth" className="label">
                               Date of birth
                             </label>
                           </td>
@@ -91,6 +154,7 @@ const AddOfficer = () => {
                               id="txtDay"
                               name="txtDay"
                               className="reg_fields"
+                              onChange={(e) => setDob(e.target.value)}
                             />
                           </td>
                         </tr>
@@ -102,7 +166,7 @@ const AddOfficer = () => {
                     <div>
                       <table>
                         <td>
-                          <label for="gender" className="label">
+                          <label id="gender" className="label">
                             Gender
                           </label>
                         </td>
@@ -111,6 +175,7 @@ const AddOfficer = () => {
                             id="gender"
                             name="gender"
                             className="reg_fields"
+                            onChange={(e) => setGender(e.target.value)}
                           >
                             <option>Male</option>
                             <option>Female</option>
@@ -120,7 +185,7 @@ const AddOfficer = () => {
                     </div>
 
                     <div className="control_input">
-                      <label for="uemail" className="label">
+                      <label id="uemail" className="label">
                         Telephone No.
                       </label>
                       <input
@@ -130,8 +195,8 @@ const AddOfficer = () => {
                         size="13"
                         maxlength="13"
                         className="reg_fields"
-                        required
                         placeholder="074565558"
+                        onChange={(e) => setTel(e.target.value)}
                       />
                     </div>
 
@@ -139,7 +204,7 @@ const AddOfficer = () => {
                       <div>
                         <table>
                           <td>
-                            <label for="campus" className="label">
+                            <label id="campus" className="label">
                               Education Background
                             </label>
                           </td>
@@ -148,6 +213,7 @@ const AddOfficer = () => {
                               id="education"
                               name="education"
                               className="reg_fields"
+                              onChange={(e) => setEducation(e.target.value)}
                             >
                               <option>O level</option>
                               <option>Certificate</option>
@@ -165,7 +231,7 @@ const AddOfficer = () => {
                         <div>
                           <table>
                             <td>
-                              <label for="campus" className="label">
+                              <label id="campus" className="label">
                                 Years of experience
                               </label>
                             </td>
@@ -174,13 +240,21 @@ const AddOfficer = () => {
                                 id="exp"
                                 name="exp"
                                 className="reg_fields"
+                                onChange={(e) => setExperience(e.target.value)}
                               >
                                 <option>1-6 months</option>
                                 <option>1-2years</option>
                                 <option>3-4years</option>
-                                <option>5-7yrs</option>
-                                <option>7-above</option>
+                                <option>5-7years</option>
+                                <option>above 7 years</option>
                               </select>
+                            </td>
+                            <td>
+                              <label>Password</label>
+                              <input
+                                type="password"
+                                onChange={(e) => setPassword(e.target.value)}
+                              />
                             </td>
                           </table>
                         </div>

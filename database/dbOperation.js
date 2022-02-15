@@ -42,7 +42,12 @@ const createOfficer = async (Officers) => {
   try {
     let pool = await sql.connect(config);
     let Officer = await pool.request().query(`
-        INSERT INTO officer VALUES (${Officers.National_id},'${Officers.Telephone}', '${Officers.From_prison}','${Officers.To_prison}', '${Officers.Dateoftransfer}')
+        INSERT INTO officer VALUES 
+        (${Officers.National_id},
+          '${Officers.Telephone}', 
+          '${Officers.From_prison}',
+          '${Officers.To_prison}', 
+          '${Officers.Dateoftransfer}')
         `);
     console.log(Officer);
     return Officer;
