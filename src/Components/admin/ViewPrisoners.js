@@ -41,8 +41,6 @@ const ViewPrisoners = () => {
         height="200"
       >
         <tr>
-          <td bgcolor="#999999" valign="center"></td>
-
           <table
             align="center"
             width="100%"

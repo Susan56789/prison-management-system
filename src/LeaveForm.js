@@ -31,6 +31,38 @@ const LeaveForm = () => {
         <tr>
           <td>
             <h1>Leave Form</h1>
+            <form>
+              <label>National ID: </label>
+              <input type="number" />
+              <br />
+              <br />
+              <label>Full Names: </label>
+              <input type="text" />
+              <br />
+              <br />
+              <label>Start date: </label>
+              <input type="date" />
+              <br />
+              <br />
+              <label>End date: </label>
+              <input type="date" />
+              <br />
+              <br />
+
+              <label>Reason for Leave: </label>
+              <select>
+                <option>Medical issues</option>
+                <option>Family emergency</option>
+                <option>Other</option>
+              </select>
+              <br />
+              <br />
+              <label>If Other Explain</label>
+              <textarea></textarea>
+              <br />
+              <br />
+              <input type="submit" value="Submit" />
+            </form>
           </td>
         </tr>
       </table>

@@ -95,15 +95,14 @@ const LoginUser = (props) => {
               </tr>
 
               <tr>
-                <td>
+                <td bgcolor="#fff" height="36" align="center">
                   {error && (
                     <>
                       <small style={{ color: "red" }}>{error}</small>
                       <br />
                     </>
                   )}
-                </td>
-                <td bgcolor="#fff" height="36" align="center">
+
                   <button type="submit">LOGIN</button>
                 </td>
               </tr>

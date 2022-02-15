@@ -4,22 +4,34 @@ import capture from "../Capturee.gif";
 import { withRouter } from "react-router";
 
 const LoginAdmin = (props) => {
-  const [id, setId] = useState();
-  const [password, setPassword] = useState();
+  const [id, setId] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError(null);
+
     await fetch("/adminLogin", {
       method: "POST",
       body: {
         id: id,
         password: password,
       },
-    }).then((res) => {
-      JSON.stringify(res);
+    })
+      .then((res) => {
+        JSON.stringify(res);
 
-      props.history.push("/Admin");
-    });
+        props.history.push("/Admin");
+      })
+      .catch((error) => {
+        if (error.response.status === 400 || error.response.status === 401) {
+          setError(error.response.data.message);
+        } else {
+          setError("Something is wrong. Please try again later !");
+        }
+        console.error("Error >>>", error);
+      });
   };
 
   return (
@@ -82,7 +94,14 @@ const LoginAdmin = (props) => {
                 </td>
               </tr>
               <tr>
-                <td bgcolor="#FFFFFF" height="36" align="center">
+                <td bgcolor="#fff" height="36" align="center">
+                  {error && (
+                    <>
+                      <small style={{ color: "red" }}>{error}</small>
+                      <br />
+                    </>
+                  )}
+
                   <button type="submit">LOGIN</button>
                 </td>
               </tr>

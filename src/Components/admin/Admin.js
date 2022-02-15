@@ -18,7 +18,7 @@ const Admin = () => {
         align="center"
         border="0"
         bgcolor="green"
-        width="500"
+        width="700"
         cellpadding="10"
         cellSpacing="0"
         height="525"
@@ -91,12 +91,11 @@ const Admin = () => {
                     <li>
                       <a href="./ViewOfficer">
                         <b>
-                          <button>Prison Officer Transfer</button>
+                          <button>Prison Officer Transfers</button>
                         </b>
                       </a>
                     </li>
                     <br />
-
                     <li>
                       <a href="./ViewPrisoners">
                         <b>

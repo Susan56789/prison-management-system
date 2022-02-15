@@ -14,10 +14,11 @@ app.use(bodyParser.json());
 
 var corsOptions = {
   origin: "*",
-  "Content-Type": "application/json",
   Accept: "application/json",
   "Access-Control-Allow-Origin": "*",
 };
+
+const PORT = process.env.PORT || 3001;
 
 // enable CORS
 app.use(cors(corsOptions));
@@ -109,13 +110,14 @@ app.get("/np", async (req, res) => {
 
 //Logins
 
-app.post("/adminLogin", async (req, res) => {
+app.post("/adminLogin", (req, res) => {
   const id = req.body.id;
   const pwd = req.body.password;
-  const Data = await dbOperation.getAdmin();
+  const Data = dbOperation.getAdmin();
 
   const result = Data.recordset;
-  console.log(result);
+
+  console.log("Admin Login");
 
   result.map((userData) => {
     // return 400 status if username/password is not exist
@@ -208,6 +210,6 @@ console.log(Mwaki);
 */
 }
 
-app.listen(3001, () =>
-  console.log("Express server is running on localhost:3001")
+app.listen(PORT, () =>
+  console.log(`Express server is running on localhost:${PORT}`)
 );
