@@ -29,7 +29,7 @@ const TransferForms = () => {
   fetchData();
 
   const getData = async () => {
-    const newData = await fetch("/prisons", {
+    const newData = await fetch("http://localhost:3001/prisons", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

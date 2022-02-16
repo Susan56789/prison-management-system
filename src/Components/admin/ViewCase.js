@@ -5,7 +5,7 @@ const ViewCase = () => {
   const [returnedData, setReturnedData] = useState([]);
 
   const fetchData = async () => {
-    const newData = await fetch("/cas", {
+    const newData = await fetch("http://localhost:3001/cas", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

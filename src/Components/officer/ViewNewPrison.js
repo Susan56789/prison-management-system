@@ -5,7 +5,7 @@ const ViewNewPrison = () => {
   const [returnedData, setReturnedData] = useState([]);
 
   const fetchData = async () => {
-    const newData = await fetch("/np", {
+    const newData = await fetch("http://localhost:3001/np", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

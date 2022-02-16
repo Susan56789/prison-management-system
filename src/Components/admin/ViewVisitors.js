@@ -5,7 +5,7 @@ const ViewVisitors = () => {
   const [returnedData, setReturnedData] = useState([]);
 
   const fetchData = async () => {
-    const newData = await fetch("/vis", {
+    const newData = await fetch("http://localhost:3001/vis", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

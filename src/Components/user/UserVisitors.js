@@ -1,71 +1,55 @@
 import React, { useState } from "react";
 import "./login.css";
 import banner from "./banner.gif";
+import { withRouter } from "react-router";
 
-const UserVisitors = () => {
+const UserVisitors = (props) => {
   const [id, setid] = useState("");
   const [fullname, setfullname] = useState("");
   const [Month, setMonth] = useState("");
-  const [date, setDate] = useState("");
+
   const [timein, setTimein] = useState("");
   const [timeOutt, setTimeoutt] = useState("");
   const [address_, setAddress_] = useState("");
-  const [county, setCounty] = useState("");
-  const [gender, setGender] = useState("");
+  const [tel, setTel] = useState("");
   const [relationship, setRelationship] = useState("");
   const [prisoner, setprisoner] = useState("");
   const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState(null);
-  const [returnedData, setReturnedData] = useState([]);
 
-  let sendData = async (e) => {
+  const data = {
+    id: id,
+    fullname: fullname,
+    address: address_,
+    timein: timein,
+    timeout: timeOutt,
+    Month: Month,
+    telephone: tel,
+    relationship: relationship,
+    prisoner: prisoner,
+  };
+
+  let handleSubmit = (e) => {
     e.preventDefault();
 
-    return await fetch("/regVisitor", {
+    fetch("http://localhost:3001/regVisitor", {
       method: "POST",
-      body: JSON.stringify({
-        id: id,
-        fullname: fullname,
-        address_: address_,
-        date: date,
-        timein: timein,
-        timeOutt: timeOutt,
-        Month: Month,
-        gender: gender,
-        relationship: relationship,
-        county: county,
-        prisoner: prisoner,
-      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
     })
       .then((res) => {
-        setLoading(false);
-        setMessage("Registration successful");
         return res;
       })
       .catch((error) => {
-        setLoading(false);
-
         setError("Something is wrong. Please try again later !");
 
         console.error("Error >>>", error);
       });
+    setMessage("Registration successful");
+    props.history.push("/User");
   };
-
-  const fetchData = async () => {
-    const newData = await fetch("/pris", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-    }).then((res) => res.json());
-    console.log(newData);
-
-    setReturnedData(newData);
-  };
-
-  fetchData();
 
   return (
     <>
@@ -74,17 +58,17 @@ const UserVisitors = () => {
         border="0"
         bgcolor="white"
         width="400"
-        cellpadding="9"
+        cellPadding="9"
         cellSpacing="0"
         height="525"
       >
         <tr>
-          <td colspan="2" height="2">
+          <td colSpan="2" height="2">
             <img src={banner} width="860" alt="" />
           </td>
         </tr>
         <tr>
-          <td colspan="3" bgcolor="#FF0000" height="1" align="center">
+          <td colSpan="3" bgcolor="#FF0000" height="1" align="center">
             <font size="4">
               <a href="./User">HOME</a> |
             </font>
@@ -95,7 +79,7 @@ const UserVisitors = () => {
             &nbsp;&nbsp;
             <td width="50%" align="center" bgcolor="white">
               <div id="content" className="ctrdiv">
-                <form id="frmReg">
+                <form id="frmReg" onSubmit={handleSubmit}>
                   <h2 id="hdr_title">Register visitor </h2>
                   <div className="control_input">
                     <label id="Nid" className="label">
@@ -104,11 +88,8 @@ const UserVisitors = () => {
                     <input
                       type="text"
                       id="Nid"
-                      name="Nid"
-                      size="8"
-                      maxlength="8"
+                      name="id"
                       className="reg_fields"
-                      required
                       placeholder="00001111"
                       onChange={(e) => setid(e.target.value)}
                     />
@@ -122,27 +103,26 @@ const UserVisitors = () => {
                       id="Fname"
                       name="Fname"
                       className="reg_fields"
-                      required
                       placeholder="Otienno jin"
                       onChange={(e) => setfullname(e.target.value)}
                     />
                   </div>
 
                   <div className="control_input">
-                    <div>
-                      <table>
-                        <tr>
-                          <td>
-                            <label id="date" className="label">
-                              Birth Date
-                            </label>
-                          </td>
-                          <td>
-                            <input type="date" />
-                          </td>
-                        </tr>
-                      </table>
-                    </div>
+                    <br />
+                    <table>
+                      <td>
+                        <label id="tel" className="label">
+                          Telephone
+                        </label>
+                      </td>
+                      <td>
+                        <input
+                          type="tel"
+                          onChange={(e) => setTel(e.target.value)}
+                        />
+                      </td>
+                    </table>
                   </div>
 
                   <div className="control_input">
@@ -150,7 +130,7 @@ const UserVisitors = () => {
                     <table>
                       <td>
                         <label id="uemail" className="label">
-                          Date in
+                          Date of visit
                         </label>
                       </td>
                       <td>
@@ -172,8 +152,9 @@ const UserVisitors = () => {
                           className="reg_fields"
                           onChange={(e) => setTimein(e.target.value)}
                         >
-                          <option>12:00am</option>
-                          <option>12:30am</option>
+                          <option>----select---</option>
+                          <option>12:00pm</option>
+                          <option>12:30pm</option>
                           <option>1:00pm</option>
                           <option>1:30pm</option>
                           <option>2:00pm</option>
@@ -203,8 +184,9 @@ const UserVisitors = () => {
                             className="reg_fields"
                             onChange={(e) => setTimeoutt(e.target.value)}
                           >
-                            <option>12:00am</option>
-                            <option>12:30am</option>
+                            <option>----select---</option>
+                            <option>12:00pm</option>
+                            <option>12:30pm</option>
                             <option>1:00pm</option>
                             <option>1:30pm</option>
 
@@ -238,64 +220,6 @@ const UserVisitors = () => {
 
                   <div>
                     <table>
-                      <tr>
-                        <td>
-                          <label id="county" className="label">
-                            County
-                          </label>
-                        </td>
-                        <td>
-                          <select
-                            id="county"
-                            name="county"
-                            className="reg_fields"
-                            onChange={(e) => setCounty(e.target.value)}
-                          >
-                            <option selected="selected" value="01">
-                              Lamu
-                            </option>
-                            <option value="02">Nairobi</option>
-                            <option value="03">Nakuru</option>
-                            <option value="04">Mombassa</option>
-                            <option value="04">Machakos</option>
-                            <option value="06">Malindi</option>
-                            <option value="07">Mandera</option>
-                            <option value="08">Meru</option>
-                          </select>
-                        </td>
-                      </tr>
-                    </table>
-                  </div>
-
-                  <div>
-                    <table>
-                      <tr>
-                        <td>
-                          <label id="opendate" className="label">
-                            Gender
-                          </label>
-                        </td>
-                        <td>
-                          <select
-                            id="Gender"
-                            name="Gender"
-                            className="reg_fields"
-                            onChange={(e) => setGender(e.target.value)}
-                          >
-                            <option selected="selected" value="01">
-                              Male
-                            </option>
-                            <option value="02">Female</option>
-                          </select>
-                        </td>
-                      </tr>
-                    </table>
-                  </div>
-
-                  <div></div>
-
-                  <div>
-                    <table>
                       <td>
                         <label id="relationship" className="label">
                           relationship
@@ -308,6 +232,7 @@ const UserVisitors = () => {
                           className="reg_fields"
                           onChange={(e) => setRelationship(e.target.value)}
                         >
+                          <option>----select---</option>
                           <option>Parent</option>
                           <option>Friend</option>
                           <option>Wife</option>
@@ -329,40 +254,30 @@ const UserVisitors = () => {
                           </label>
                         </td>
                         <td>
-                          <select
+                          <input
+                            type="text"
                             id="prison"
                             name="prison"
                             className="reg_fields"
                             onChange={(e) => setprisoner(e.target.value)}
-                          >
-                            <option>Select</option>
-                            {returnedData.map((Data) => (
-                              <option>{Data.Fullname}</option>
-                            ))}
-                          </select>
+                          />
                         </td>
                       </table>
+                    </div>
 
+                    <div>
+                      {error && (
+                        <>
+                          <small style={{ color: "red" }}>{error}</small>
+                          <br />
+                        </>
+                      )}
+                      <br />
                       <div className="control_input">
-                        {error && (
-                          <>
-                            <small style={{ color: "red" }}>{error}</small>
-                            <br />
-                          </>
-                        )}
-                        <br />
-                        <input
-                          type="submit"
-                          value={loading ? "Loading..." : "SUBMIT"}
-                          onSubmit={sendData}
-                          disabled={loading}
-                          className="btn btn-outline-primary"
-                        />
+                        <input type="submit" value="Submit" />
                       </div>
 
-                      <div id="validation_msg" style={{ color: "blue" }}>
-                        {message}
-                      </div>
+                      <div id="validation_msg">{message}</div>
                     </div>
                   </div>
                 </form>
@@ -375,4 +290,4 @@ const UserVisitors = () => {
   );
 };
 
-export default UserVisitors;
+export default withRouter(UserVisitors);

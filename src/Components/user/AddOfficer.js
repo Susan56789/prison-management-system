@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import "./login.css";
 import banner from "./banner.gif";
+import { withRouter } from "react-router";
 
-const AddOfficer = () => {
+const AddOfficer = (props) => {
   const [id, setId] = useState();
   const [firstname, setfirstName] = useState();
   const [lastname, setlastName] = useState();
@@ -60,6 +61,7 @@ const AddOfficer = () => {
     e.preventDefault();
     clearInputs();
     setMessage("Registration Successful");
+    props.history.push("/User");
   };
 
   return (
@@ -273,4 +275,4 @@ const AddOfficer = () => {
   );
 };
 
-export default AddOfficer;
+export default withRouter(AddOfficer);

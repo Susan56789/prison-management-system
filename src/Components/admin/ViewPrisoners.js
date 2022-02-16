@@ -5,7 +5,7 @@ const ViewPrisoners = () => {
   const [returnedData, setReturnedData] = useState([]);
 
   const fetchData = async () => {
-    const newData = await fetch("/pris", {
+    const newData = await fetch("http://localhost:3001/pris", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -41,14 +41,7 @@ const ViewPrisoners = () => {
         height="200"
       >
         <tr>
-          <table
-            align="center"
-            width="100%"
-            border="0"
-            cellpadding="3"
-            cellSpacing="2"
-            bgcolor="green"
-          >
+          <table align="center" border="0" bgcolor="green">
             <caption>
               <h3>PRISONER INFORMATION</h3>
             </caption>

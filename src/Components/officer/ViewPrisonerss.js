@@ -5,7 +5,7 @@ function ViewPrisonerss() {
   const [returnedData, setReturnedData] = useState([]);
 
   const fetchData = async () => {
-    const newData = await fetch("/pris", {
+    const newData = await fetch("http://localhost:3001/pris", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -19,8 +19,7 @@ function ViewPrisonerss() {
         return res.json();
       })
       .catch((err) => console.log(err));
-    console.log(newData);
-
+    //console.log(newData);
     setReturnedData(newData);
   };
 

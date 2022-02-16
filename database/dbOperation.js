@@ -38,6 +38,7 @@ const getOfficer = async () => {
     console.log(error);
   }
 };
+
 const createOfficer = async (Officers) => {
   try {
     let pool = await sql.connect(config);

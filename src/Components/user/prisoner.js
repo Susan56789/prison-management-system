@@ -1,12 +1,45 @@
 import React, { useState } from "react";
 import "./login.css";
 import banner from "./banner.gif";
+import { withRouter } from "react-router";
 
-const Prisoner = () => {
+const Prisoner = (props) => {
   const [returnedData, setReturnedData] = useState([]);
+  const [message, setMessage] = useState(null);
+  const [id, setId] = useState();
+  const [fullname, setFullname] = useState();
+  const [dob, setDob] = useState();
+  const [datein, setDatein] = useState();
+  const [dateout, setDateout] = useState();
+  const [address, setAddress] = useState();
+  const [county, setCounty] = useState();
+  const [gender, setGender] = useState();
+  const [education, setEducation] = useState();
+  const [status, setStatus] = useState();
+  const [offence, setOffence] = useState();
+  const [sentence, setSentence] = useState();
+  const [file, setFile] = useState();
+  const [prison, setPrison] = useState();
+
+  const data = {
+    id: id,
+    fullname: fullname,
+    dateofbirth: dob,
+    datein: datein,
+    dateout: dateout,
+    address: address,
+    county: county,
+    gender: gender,
+    education: education,
+    status: status,
+    offence: offence,
+    sentence: sentence,
+    filenum: file,
+    prison: prison,
+  };
 
   const fetchData = async () => {
-    const newData = await fetch("/prisons", {
+    const newData = await fetch("http://localhost:3001/prisons", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -20,6 +53,25 @@ const Prisoner = () => {
 
   fetchData();
 
+  const handleSubmit = (e) => {
+    fetch("http://localhost:3001/newPrisoners", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      // We convert the React state to JSON and send it as the POST body
+      body: JSON.stringify(data),
+    }).then((response) => {
+      console.log(response);
+      return response;
+    });
+
+    e.preventDefault();
+
+    setMessage("Registration Successful");
+    props.history.push("/User");
+  };
+
   return (
     <>
       <table
@@ -32,12 +84,12 @@ const Prisoner = () => {
         height="525"
       >
         <tr>
-          <td colspan="2" height="2">
+          <td colSpan="2" height="2">
             <img src={banner} width="860" alt="" />
           </td>
         </tr>
         <tr>
-          <td colspan="3" bgcolor="#FF0000" height="1" align="center">
+          <td colSpan="3" bgcolor="#FF0000" height="1" align="center">
             <font size="4">
               <a href="./User">HOME</a> |
             </font>
@@ -48,64 +100,57 @@ const Prisoner = () => {
             &nbsp;&nbsp;
             <div width="50%" align="center" bgcolor="white">
               <div id="content" className="ctrdiv">
-                <form id="frmReg" method="POST" action="prisonerval.php">
+                <form id="frmReg" onSubmit={handleSubmit}>
                   <h2 id="hdr_title">Register Prisoner </h2>
                   <>
                     <td className="control_input">
                       <label className="label">National Id</label>
                       <input
                         type="text"
-                        id="Nid"
-                        name="Nid"
-                        size="8"
-                        maxlength="8"
+                        id="id"
+                        name="id"
                         className="reg_fields"
-                        required
                         placeholder="00001111"
+                        onChange={(e) => setId(e.target.value)}
                       />
                     </td>
                   </>
                   <>
                     <td className="control_input">
-                      <label for="Fname" className="label">
-                        Full Name
-                      </label>
+                      <label className="label">Full Name</label>
                       <input
                         type="text"
-                        id="Fname"
+                        id="Fullname"
                         name="Fname"
-                        className="reg_fields"
-                        required
                         placeholder="Otienno jin"
+                        onChange={(e) => setFullname(e.target.value)}
                       />
                     </td>
                   </>
 
                   <tr className="control_input">
-                    <label for="date" className="label">
-                      Birth Date
-                    </label>
+                    <label className="label">Birth Date</label>
 
                     <input
                       type="date"
                       id="txtDay"
-                      name="txtDay"
+                      name="dateofbirth"
                       className="reg_fields"
+                      onChange={(e) => setDob(e.target.value)}
                     />
                   </tr>
 
                   <div className="control_input"></div>
 
                   <tr className="control_input">
-                    <label for="datein" className="label">
-                      Date In
-                    </label>
+                    <label className="label">Date In</label>
 
                     <input
                       type="date"
-                      id="TxtDay"
-                      name="TxtDay"
+                      id="datein"
+                      name="datein"
                       className="reg_fields"
+                      onChange={(e) => setDatein(e.target.value)}
                     />
                     <td>
                       <label for="opendate" className="label">
@@ -117,8 +162,9 @@ const Prisoner = () => {
                       <input
                         type="date"
                         id="TXtDay"
-                        name="TXtDay"
+                        name="dateout"
                         className="reg_fields"
+                        onChange={(e) => setDateout(e.target.value)}
                       />
                     </td>
                   </tr>
@@ -130,8 +176,8 @@ const Prisoner = () => {
                       id="address"
                       name="address"
                       className="reg_fields"
-                      required
                       placeholder="Rongai"
+                      onChange={(e) => setAddress(e.target.value)}
                     />
                   </td>
 
@@ -145,8 +191,9 @@ const Prisoner = () => {
                           id="county"
                           name="county"
                           className="reg_fields"
+                          onChange={(e) => setCounty(e.target.value)}
                         >
-                          <option selected="selected">Lamu</option>
+                          <option>Lamu</option>
                           <option>Nairobi</option>
                           <option>Nakuru</option>
                           <option>Mombassa</option>
@@ -169,8 +216,9 @@ const Prisoner = () => {
                           id="Gender"
                           name="Gender"
                           className="reg_fields"
+                          onChange={(e) => setGender(e.target.value)}
                         >
-                          <option selected="selected">Male</option>
+                          <option>Male</option>
                           <option>Female</option>
                         </select>
                       </td>
@@ -187,8 +235,9 @@ const Prisoner = () => {
                           id="education"
                           name="education"
                           className="reg_fields"
+                          onChange={(e) => setEducation(e.target.value)}
                         >
-                          <option selected="selected">KECP</option>
+                          <option selected="selected">KCPE</option>
                           <option>Never</option>
                           <option>O level</option>
                           <option>Certificate</option>
@@ -211,6 +260,7 @@ const Prisoner = () => {
                           id="status"
                           name="status"
                           className="reg_fields"
+                          onChange={(e) => setStatus(e.target.value)}
                         >
                           <option selected="selected">Select</option>
                           <option>Divorced</option>
@@ -224,15 +274,13 @@ const Prisoner = () => {
                   </div>
 
                   <td className="control_input">
-                    <label for="Pname" className="label">
-                      Offence
-                    </label>
+                    <label className="label">Offence</label>
                     <textarea
                       cols="17"
                       rows="4"
                       name="offence"
-                      required
                       placeholder="fill this box"
+                      onChange={(e) => setOffence(e.target.value)}
                     ></textarea>
                   </td>
 
@@ -246,8 +294,9 @@ const Prisoner = () => {
                           id="sentence"
                           name="sentence"
                           className="reg_fields"
+                          onChange={(e) => setSentence(e.target.value)}
                         >
-                          <option selected="selected">3 months</option>
+                          <option>3 months</option>
                           <option>6 months</option>
                           <option>1 year</option>
                           <option>2 years</option>
@@ -268,11 +317,9 @@ const Prisoner = () => {
                       type="text"
                       id="Filenum"
                       name="Filenum"
-                      size="8"
-                      maxlength="8"
                       className="reg_fields"
-                      required
                       placeholder="xxx"
+                      onChange={(e) => setFile(e.target.value)}
                     />
                   </div>
 
@@ -288,6 +335,7 @@ const Prisoner = () => {
                           id="prison"
                           name="prison"
                           className="reg_fields"
+                          onChange={(e) => setPrison(e.target.value)}
                         >
                           <option value="">--Select prison--</option>
                           {returnedData.map((Data) => (
@@ -300,14 +348,12 @@ const Prisoner = () => {
                         <input
                           type="submit"
                           name="signup"
-                          id="Add"
-                          value="Add "
-                          title=""
+                          value="Submit "
                           border="0"
                         />
                       </div>
 
-                      <div id="validation_msg"></div>
+                      <div id="validation_msg">{message}</div>
                     </div>
                   </div>
                 </form>
@@ -320,4 +366,4 @@ const Prisoner = () => {
   );
 };
 
-export default Prisoner;
+export default withRouter(Prisoner);

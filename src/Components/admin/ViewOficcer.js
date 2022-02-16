@@ -7,7 +7,7 @@ const ViewOficcer = () => {
   const [returnedData, setReturnedData] = useState([]);
 
   const fetchData = async () => {
-    const newData = await fetch("/api", {
+    const newData = await fetch("http://localhost:3001/api", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

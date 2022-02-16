@@ -6,7 +6,7 @@ function ViewCommentss() {
   const [returnedData, setReturnedData] = useState([]);
 
   const fetchData = async () => {
-    const newData = await fetch("/comment", {
+    const newData = await fetch("http://localhost:3001/comment", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

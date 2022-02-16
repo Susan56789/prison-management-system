@@ -5,7 +5,7 @@ const ViewTransferss = () => {
   const [returnedData, setReturnedData] = useState([]);
 
   const fetchData = async () => {
-    const newData = await fetch("/tran", {
+    const newData = await fetch("http://localhost:3001/tran", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

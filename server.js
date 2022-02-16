@@ -84,15 +84,6 @@ app.get("/vis", async (req, res) => {
   res.send(result.recordset);
 });
 
-//Register visitors
-app.post("/regVisitor", async (req, res) => {
-  // const { firstName, lastName } = req.body;
-  console.log("Visitor Registration");
-  await dbOperation.createVisitor(req.body);
-  const result = await dbOperation.getVisitor(req.body);
-  res.send(result.recordset);
-});
-
 //Officer details
 app.get("/det", async (req, res) => {
   console.log("details");
@@ -195,23 +186,12 @@ app.post("/officerLogin", async (req, res) => {
   });
 });
 
+//Registrations
+
 app.post("/newOfficers", async (req, res) => {
   const sql = require("mssql");
   const config = require("./database/dbConfig");
   let conn = await sql.connect(config);
-
-  let data = {
-    id: req.body.id,
-    firstname: req.body.fistname,
-    lastname: req.body.lastname,
-    address_: req.body.address,
-    dateofbirth: req.body.dob,
-    gender: req.body.gender,
-    telephone: req.body.tel,
-    education: req.body.education,
-    experience: req.body.experience,
-    password_: req.body.password,
-  };
 
   console.log("New officers >>>", req.body);
 
@@ -223,10 +203,48 @@ app.post("/newOfficers", async (req, res) => {
 
         `
     );
-    console.log("New Officers >>> ", officer);
-
-    //res.send(data);
     return officer;
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+//Register visitors
+app.post("/regVisitor", async (req, res) => {
+  console.log("Visitor Registration");
+
+  const sql = require("mssql");
+  const config = require("./database/dbConfig");
+  let conn = await sql.connect(config);
+
+  console.log(req.body);
+  try {
+    let visitor = await conn.request()
+      .query(`INSERT INTO visitor VALUES(${req.body.id},'${req.body.fullname}',
+    '${req.body.address}', '${req.body.Month}','${req.body.timein}','${req.body.timeout}','${req.body.relationship}',
+    '${req.body.telephone}','${req.body.prisoner}'
+    )`);
+
+    return visitor;
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+app.post("/newPrisoners", async (req, res) => {
+  const sql = require("mssql");
+  const config = require("./database/dbConfig");
+  let conn = await sql.connect(config);
+
+  console.log(req.body);
+  try {
+    let prisoner = await conn.request()
+      .query(`INSERT INTO registration VALUES(${req.body.id}, '${req.body.fullname}', '${req.body.dateofbirth}','${req.body.datein}',
+      '${req.body.dateout}', '${req.body.address}', '${req.body.county}', '${req.body.gender}', '${req.body.education}',
+      '${req.body.status}','${req.body.offence}', '${req.body.sentence}','${req.body.filenum}', '${req.body.prison}'
+      )`);
+
+    return prisoner;
   } catch (error) {
     console.log(error);
   }

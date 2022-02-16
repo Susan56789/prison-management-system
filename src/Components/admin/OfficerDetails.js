@@ -5,7 +5,7 @@ const OfficerDetails = () => {
   const [returnedData, setReturnedData] = useState([]);
 
   const fetchData = async () => {
-    const newData = await fetch("/det", {
+    const newData = await fetch("http://localhost:3001/det", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
