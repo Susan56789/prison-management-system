@@ -137,7 +137,7 @@ app.post("/userLogin", async (req, res) => {
   const Data = await dbOperation.getOfficer();
 
   const result = Data.recordset;
-  console.log(result);
+  //console.log(result);
 
   result.map((userData) => {
     // return 400 status if username/password is not exist
@@ -165,7 +165,7 @@ app.post("/officerLogin", async (req, res) => {
   const Data = await dbOperation.getOfficer();
 
   const result = Data.recordset;
-  console.log(result);
+  //console.log(result);
   result.map((userData) => {
     // return 400 status if username/password is not exist
     if (!id || !pwd) {
@@ -204,6 +204,45 @@ app.post("/newOfficers", async (req, res) => {
         `
     );
     return officer;
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+app.post("/Prisonertransfer", async (req, res) => {
+  const sql = require("mssql");
+  const config = require("./database/dbConfig");
+  let conn = await sql.connect(config);
+
+  console.log(req.body);
+
+  try {
+    let transfers = await conn
+      .request()
+      .query(
+        `INSERT INTO transfers VALUES(${req.body.id},'${req.body.file}','${req.body.from}','${req.body.to}','${req.body.date}')`
+      );
+
+    return transfers;
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+app.post("/newPrisons", async (req, res) => {
+  const sql = require("mssql");
+  const config = require("./database/dbConfig");
+  let conn = await sql.connect(config);
+
+  console.log(req.body);
+
+  try {
+    let prisons = await conn.request()
+      .query(`INSERT INTO newprison VALUES (${req.body.pnumber},
+      '${req.body.pname}', '${req.body.location}', '${req.body.date}', ${req.body.contact}, ${req.body.capacity}
+      )`);
+
+    return prisons;
   } catch (error) {
     console.log(error);
   }

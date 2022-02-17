@@ -7,7 +7,7 @@ const getAdmin = async () => {
   try {
     let pool = await sql.connect(config);
     let Admin = pool.request().query("SELECT * from admin_tbl");
-    console.log(Admin);
+    // console.log(Admin);
     return Admin;
   } catch (error) {
     console.log(error);
@@ -20,7 +20,7 @@ const createAdmin = async (Admins) => {
     let Admin = pool.request().query(`
         INSERT INTO admin_tbl VALUES (${Admins.Admin_Id},'${Admins.Admin_Name}', '${Admins.Admin_Password}')
         `);
-    console.log(Admin);
+    // console.log(Admin);
     return Admin;
   } catch (error) {
     console.log(error);
@@ -32,7 +32,7 @@ const getOfficer = async () => {
   try {
     let pool = await sql.connect(config);
     let Officer = await pool.request().query("SELECT * from officer");
-    console.log(Officer);
+    //console.log(Officer);
     return Officer;
   } catch (error) {
     console.log(error);
@@ -50,7 +50,7 @@ const createOfficer = async (Officers) => {
           '${Officers.To_prison}', 
           '${Officers.Dateoftransfer}')
         `);
-    console.log(Officer);
+    //console.log(Officer);
     return Officer;
   } catch (error) {
     console.log(error);
@@ -91,7 +91,7 @@ const createPrisoner = async (prisoners) => {
             ${prisoners.prison}
         `
     );
-    console.log(Prisoner);
+    // console.log(Prisoner);
     return Prisoner;
   } catch (error) {
     console.log(error);
@@ -103,7 +103,7 @@ const getCase = async () => {
   try {
     let pool = await sql.connect(config);
     let Case = await pool.request().query("SELECT * from court");
-    console.log(Case);
+    // console.log(Case);
     return Case;
   } catch (error) {
     console.log(error);
@@ -120,7 +120,7 @@ const createCase = async (cases) => {
             ${cases.Sentence},
             ${cases.Location_},
         `);
-    console.log(Case);
+    // console.log(Case);
     return Case;
   } catch (error) {
     console.log(error);
@@ -132,7 +132,7 @@ const getTransfer = async () => {
   try {
     let pool = await sql.connect(config);
     let Transfer = await pool.request().query("SELECT * from transfers");
-    console.log(Transfer);
+    //console.log(Transfer);
     return Transfer;
   } catch (error) {
     console.log(error);
@@ -149,7 +149,7 @@ const createTransfer = async (transfers) => {
             ${transfers.To_Prison},
             ${transfers.Dateoftransfer},
         `);
-    console.log(Transfer);
+    // console.log(Transfer);
     return Transfer;
   } catch (error) {
     console.log(error);
@@ -161,7 +161,7 @@ const getVisitor = async () => {
   try {
     let pool = await sql.connect(config);
     let Visitor = await pool.request().query("SELECT * from visitor");
-    console.log(Visitor);
+    // console.log(Visitor);
     return Visitor;
   } catch (error) {
     console.log(error);
@@ -182,7 +182,7 @@ const createVisitor = async (visit) => {
             ${visit.telephone},
             ${visit.prisoner}
         `);
-    console.log(Visitor);
+    //console.log(Visitor);
     return Visitor;
   } catch (error) {
     console.log(error);
@@ -194,7 +194,7 @@ const getDetails = async () => {
   try {
     let pool = await sql.connect(config);
     let Officer = await pool.request().query("SELECT * from officerdetails");
-    console.log(Officer);
+    // console.log(Officer);
     return Officer;
   } catch (error) {
     console.log(error);
@@ -216,7 +216,7 @@ const createDetails = async (Officers) => {
              '${Officers.experience}',
              ')
         `);
-    console.log(Officer);
+    //console.log(Officer);
     return Officer;
   } catch (error) {
     console.log(error);
@@ -228,7 +228,7 @@ const getNewP = async () => {
   try {
     let pool = await sql.connect(config);
     let Prison = await pool.request().query("SELECT * from newprison");
-    console.log(Prison);
+    //console.log(Prison);
     return Prison;
   } catch (error) {
     console.log(error);
@@ -247,7 +247,7 @@ const createNewP = async (newp) => {
             ${newp.capacity}
              ')
         `);
-    console.log(Prison);
+    // console.log(Prison);
     return Prison;
   } catch (error) {
     console.log(error);

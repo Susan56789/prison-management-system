@@ -103,7 +103,7 @@ const LoginUser = (props) => {
                     </>
                   )}
 
-                  <button type="submit">LOGIN</button>
+                  <input type="submit" value="LOGIN" />
                 </td>
               </tr>
             </form>

@@ -3,30 +3,40 @@ import React, { useState } from "react";
 import "./login.css";
 
 const TransferForms = () => {
-  const [returnedData, setReturnedData] = useState([]);
   const [returnData, setReturnData] = useState([]);
+  const [id, setId] = useState();
+  const [from, setFrom] = useState();
+  const [To, setTo] = useState();
+  const [file, setFile] = useState();
+  const [date, setDate] = useState();
 
-  const fetchData = async () => {
-    const newData = await fetch("/pris", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-    })
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error(res.statusText);
-        }
-        return res.json();
-      })
-      .catch((err) => console.log(err));
-    console.log(newData);
-
-    setReturnedData(newData);
+  const data = {
+    id: id,
+    file: file,
+    from: from,
+    to: To,
+    date: date,
   };
 
-  fetchData();
+  const handleSubmit = (e) => {
+    fetch("http://localhost:3001/Prisonertransfer", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      // We convert the React state to JSON and send it as the POST body
+      body: JSON.stringify(data),
+    })
+      .then((response) => {
+        console.log(response);
+        return response;
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+    e.preventDefault();
+  };
 
   const getData = async () => {
     const newData = await fetch("http://localhost:3001/prisons", {
@@ -42,8 +52,9 @@ const TransferForms = () => {
         }
         return res.json();
       })
+
       .catch((err) => console.log(err));
-    console.log(newData);
+    //console.log(newData);
 
     setReturnData(newData);
   };
@@ -71,34 +82,36 @@ const TransferForms = () => {
           <h2 class="bg-primary" align="center">
             TRANSFER FORM FOR PRISONERS
           </h2>
-          <form action="validatetransfer" method="post">
+          <>
             <form
               bgcolor="white"
               height="431"
               border="0"
               align="center"
-              width="50%"
+              width="200"
+              onSubmit={handleSubmit}
             >
+              <tr>
+                <td>
+                  <b>File Number</b>
+                </td>
+
+                <td>
+                  <input
+                    type="text"
+                    onChange={(e) => setFile(e.target.value)}
+                  />
+                </td>
+              </tr>
               <tr>
                 <td>
                   <b>National Id </b>{" "}
                 </td>
                 <td>
-                  <select name="Nid">
-                    <option value="">--Select National Id--</option>
-                    {returnedData.map((Data) => (
-                      <option>{Data.id}</option>
-                    ))}
-                  </select>
-                </td>
-              </tr>
-
-              <tr>
-                <td>
-                  <b>Time </b>{" "}
-                </td>
-                <td>
-                  <input type="time" />
+                  <input
+                    type="number"
+                    onChange={(e) => setId(e.target.value)}
+                  />
                 </td>
               </tr>
 
@@ -107,7 +120,8 @@ const TransferForms = () => {
                   <b>From Prison:</b>
                 </td>
                 <td>
-                  <select name="From">
+                  <select name="From" onChange={(e) => setFrom(e.target.value)}>
+                    <option>--Select prison---</option>
                     {returnData.map((Data) => (
                       <option>{Data.pname}</option>
                     ))}
@@ -119,7 +133,8 @@ const TransferForms = () => {
                   <b>To Prison:</b>
                 </td>
                 <td>
-                  <select name="To">
+                  <select name="To" onChange={(e) => setTo(e.target.value)}>
+                    <option>--Select prison---</option>
                     {returnData.map((Data) => (
                       <option>{Data.pname}</option>
                     ))}
@@ -132,18 +147,23 @@ const TransferForms = () => {
                   <label for="on">
                     <b>Date of Transfer:</b>
                   </label>
-
-                  <td>
-                    <input type="date" name="day" size="4" maxlength="2" />
-                  </td>
-
-                  <td height="26" bgcolor="#FFFFFF" align="center">
-                    <input type="submit" value="SUBMIT" />
-                  </td>
+                </td>
+                <td>
+                  <input
+                    type="date"
+                    name="day"
+                    size="4"
+                    onChange={(e) => setDate(e.target.value)}
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td height="26" bgcolor="#FFFFFF" align="center">
+                  <input type="submit" value="SUBMIT" />
                 </td>
               </tr>
             </form>
-          </form>
+          </>
         </td>
       </table>
     </div>

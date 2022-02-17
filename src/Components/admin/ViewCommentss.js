@@ -40,12 +40,10 @@ function ViewCommentss() {
         height="200"
       >
         <tr>
-          <td bgcolor="#999999" valign="center"></td>
-
           <table
             align="center"
             bgcolor="GREEN"
-            width="100%"
+            width="500"
             border="0"
             cellPadding="3"
             cellSpacing="2"

@@ -173,7 +173,7 @@ const App = () => {
           <Route exact path="/officerSearch">
             <SearchForms />
           </Route>
-          <Route path="/transferForm">
+          <Route exact path="/transferForm">
             <TransferForms />
           </Route>
           <Route path="/viewComments">

@@ -12,7 +12,7 @@ const ViewTransferss = () => {
         Accept: "application/json",
       },
     }).then((res) => res.json());
-    console.log(newData);
+    //console.log(newData);
 
     setReturnedData(newData);
   };
