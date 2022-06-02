@@ -6,7 +6,7 @@ import "../admin/OfficerTransfer";
 import "../admin/Registration";
 import "../admin/Court";
 import "./ViewOficcer";
-
+import banner from "./banner.gif";
 const Admin = () => {
   return (
     <>
@@ -25,7 +25,7 @@ const Admin = () => {
       >
         <tr>
           <td colspan="3" height="2">
-            <img src="banner.gif" width="860" height="300" alt="" />
+            <img src={banner} width="860" height="300" alt="" />
           </td>
         </tr>
         <tr>
