@@ -19,7 +19,7 @@ const Home = () => {
       <tr>
         <td colSpan="3" height="2">
           {" "}
-          <img src={banner} width="860" alt="" />
+          <img src={banner} width="860" height="300" alt="" />
         </td>
       </tr>
 

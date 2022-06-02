@@ -23,7 +23,7 @@ const User = () => {
       >
         <tr>
           <td colspan="3" height="2">
-            <img src={banner} alt=" " />
+            <img src={banner} width="860" height="300" alt=" " />
           </td>
         </tr>
         <tr>

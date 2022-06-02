@@ -25,7 +25,7 @@ const Admin = () => {
       >
         <tr>
           <td colspan="3" height="2">
-            <img src="banner.gif" alt="" />
+            <img src="banner.gif" width="860" height="300" alt="" />
           </td>
         </tr>
         <tr>
